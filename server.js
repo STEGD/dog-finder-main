@@ -2,14 +2,12 @@ const express = require('express');
 
 const app = express();
 
-app.get('/api/customers', (req, res) => {
-  const customers = [
-    {id: 1, firstName: 'John', lastName: 'Doe'},
-    {id: 2, firstName: 'Brad', lastName: 'Traversy'},
-    {id: 3, firstName: 'Mary', lastName: 'Swanson'},
-  ];
+app.get('/test1', (req, res) => {
+  res.json({ message: "We got a response back from the Express server!" });
+});
 
-  res.json(customers);
+app.get('/test2', (req, res) => {
+  res.json({ message: "I see you found the second test endpoint. Welcome!" });
 });
 
 const port = 5000;
