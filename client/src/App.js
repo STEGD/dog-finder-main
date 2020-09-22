@@ -23,7 +23,8 @@ class App extends Component {
           <h1 className="App-title">Hello world</h1>
           <button onClick={() => this.buttonPress(1)}>Test endpoint 1</button>
           <button onClick={() => this.buttonPress(2)}>Test endpoint 2</button>
-	  <button onClick={() => this.buttonPress(3)}>Test endpoint 3</button>
+	        <button onClick={() => this.buttonPress(3)}>Test endpoint 3</button>
+          <button onClick={() => this.buttonPress(4)}>Test endpoint 4</button>
           <p>{this.state.message}</p>
         </header>
       </div>
