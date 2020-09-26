@@ -18,6 +18,10 @@ app.get('/test4', (req, res) => {
   res.json({ message: "This is not a test of the Cal Poly Pomona Alert System" });
 });
 
+app.get('/test5', (req, res) => {
+  res.json({ message: "Please help, still cannot see text when button is pressed. Signed Justin." });
+});
+
 const port = 5000;
 
 app.listen(port, () => `Server running on port ${port}`);
