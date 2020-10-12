@@ -46,6 +46,7 @@ class App extends Component {
 	        <button class="button1" onClick={() => this.buttonPress("test3")}>Test endpoint 3</button>
           <button class="button1" onClick={() => this.buttonPress("test4")}>Test endpoint 4</button>
           <button class="button1" onClick={() => this.buttonPress("test5")}>Test endpoint 5</button>
+          <button class="button1" onClick={() => this.buttonPress("test5")}>Test endpoint 6</button>
           <p>{this.state.message}</p>
 	  <form onSubmit={this.handleSubmit}>
   	  <label>
