@@ -1,4 +1,5 @@
 # dog-finder-main
+
 A dog finder web service (can edit this later)
 
 ## Quick Start
@@ -20,7 +21,4 @@ npm run server
 npm run client
 
 # Server runs on http://localhost:5000 and client on http://localhost:3000
-
-# install react-router-dom in order to navigate between different pages
- npm install --save react-router-dom 
 ```
