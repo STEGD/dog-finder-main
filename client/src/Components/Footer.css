@@ -1,0 +1,31 @@
+.main-footer{
+    background-color: lightblue;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: left;
+    padding: 5px;
+}
+
+img {
+    height: 20px;
+    padding-right: 10px;
+    float: left;
+}
+
+.icon-logo {
+    float: right;
+    padding-right: 25px;
+    height:14px;
+    width:14px;
+}
+
+.icon-logo {
+    cursor: pointer;
+}
+
+p{
+    font-weight: bold;
+    font-size: 10px;
+}

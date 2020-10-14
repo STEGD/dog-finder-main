@@ -2,7 +2,6 @@ import React from 'react';
 import  {Route,Link} from 'react-router-dom'; 
 import "../index.css";
 import Pic from './pics/logo.png'
-import { ReactComponent as Logo } from './pics/logo.png';
 
 export default function Navbar() {
     return (
