@@ -10,7 +10,6 @@ export default function RadioQuestion(props) {
     }
     return (
         <div className="question-body">
-            <h3>{props.Number}</h3>
             <h3>{props.question}</h3>
             <div>
                 
