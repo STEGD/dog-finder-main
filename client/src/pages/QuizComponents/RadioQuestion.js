@@ -9,38 +9,43 @@ export default function RadioQuestion(props) {
        setResponse(e.target.value)
     }
     return (
-        <div className="question-body">
+        <div className="grid-container">
+            <div className="title">
             <h3>{props.question}</h3>
-            <div>
+            </div>
+            <div className="responseA">
                 
                 <Radio value="A" 
                 checked ={response ==="A"}
                 color ="primary"
                 onChange={handleChange}
                 />
-                <span>{props.AnswerA}</span>
-                
+                <p>{props.AnswerA}</p>
+            </div>
+            <div className="responseB">
                 <Radio value="B" 
                 checked ={response ==="B"}
                 color ="primary"
                 onChange={handleChange}
                 />
-                <span>{props.AnswerB}</span>
+                <p>{props.AnswerB}</p>
             </div>
-            <div>
+            <div className="responseC">
                 
                 <Radio value="C" 
                 checked ={response ==="C"}
                 color ="secondary"
                 onChange={handleChange}
                 />
-                <span>{props.AnswerC}</span>
+                <p>{props.AnswerC}</p>
+            </div>
+            <div className="responseD">
                 <Radio value="D" 
                 checked ={response ==="D"}
                 color ="secondary"
                 onChange={handleChange}
                 />
-                <span>{props.AnswerD}</span>
+                <p>{props.AnswerD}</p>
             </div>
         </div>
     )

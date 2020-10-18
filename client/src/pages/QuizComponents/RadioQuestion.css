@@ -1,9 +1,70 @@
-.question-body{
-    padding-left: 100px;
+
+.grid-container{
+    margin: auto;
+    display: grid;
+    grid-gap: 5px;
+    padding: 0;
+    list-style: none;
+    grid-template-areas: 'title title'
+    'responseA responseB'
+    'responseC responseD';
+}
+.title{
+    grid-area:title;
+}
+.responseA {
+    grid-area: responseA;
+    grid-gap:0;
+    display: flex;
+    align-items: start;
+    justify-content: left;
+ }
+
+ .responseA p{
+     font-size: 15px;
+     width: 200px;
+ }
+ .responseB {
+    grid-area: responseB;
+    grid-gap:0;
+    display: flex;
+    align-items: start;
+    justify-content: left;
+ }
+ .responseB p{
+    font-size: 15px;
+    width: 200px;
+}
+ .responseC {
+    grid-area: responseC;
+    grid-gap:0;
+    display: flex;
+    align-items: start;
+    justify-content: left;
+ }
+ .responseC p{
+    font-size: 15px;
+     width: 200px;
+}
+ .responseD {
+    grid-area: responseD;
+    grid-gap:0;
+    display: flex;
+    align-items: start;
+    justify-content: left;
+ }
+ .responseD p{
+    font-size: 15px;
+    width: 200px;
 }
 
-
-span{
-    padding-left: 5px;
-    padding-right: 5px;
-}
+@media(max-width:700px){
+    .top-container{
+      grid-template-areas:
+     'title'
+     'responseA'
+     'responseB'
+     'responseC'
+     'responseD';
+    }
+  }

@@ -1,6 +1,7 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
+import './TextQuestion.css';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -12,12 +13,12 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 
-export default function TextQuestion() {
+export default function TextQuestion(props) {
     const classes = useStyles();
     return (
-        <div>
+        <div className="text-container">
             <form className={classes.root} noValidate autoComplete="off">
-              <h3>What is 2 +2 ?</h3>
+           <h3>{props.question}</h3>
                 <TextField
                     id="standard-number"
                     label="Number"
