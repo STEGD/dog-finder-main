@@ -1,0 +1,22 @@
+.quiz-container h1{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    text-decoration: underline;
+}
+.quiz-container{
+    background: white;
+    display: grid;
+    grid-gap: 5px;
+    padding: 0;
+    
+}
+
+.numberQuestion{
+    padding-left: 5000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
