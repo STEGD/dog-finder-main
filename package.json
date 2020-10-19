@@ -16,6 +16,8 @@
     "nodemon": "^1.14.6"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.56",
     "concurrently": "^3.6.1",
     "crawler": "^1.2.2",

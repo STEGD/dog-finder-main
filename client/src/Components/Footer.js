@@ -11,7 +11,7 @@ export default function Footer() {
     <div className="main-footer">
       <div className="container">
         <div className = 'contents'>
-          <img src={Paw} alt="paw" />
+          <img className = 'paw-logo' src={Paw} alt="paw" />
         <p>Copyright © 2020 STEDG. All rights reserved. {<AiOutlineGithub className= 'icon-logo' onClick = {gitHubLink}/>}</p>
         </div>
       </div>
