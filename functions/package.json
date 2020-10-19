@@ -5,9 +5,13 @@
     "lint": "eslint .",
     "serve": "firebase emulators:start --only functions",
     "shell": "firebase functions:shell",
-    "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log"
+    "logs": "firebase functions:log",
+    "client-install": "cd ../client && npm install",
+    "start": "node functions/index.js",
+    "server": "nodemon functions/index.js",
+    "client": "npm start --prefix ../client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "engines": {
     "node": "10"
@@ -15,7 +19,15 @@
   "main": "index.js",
   "dependencies": {
     "firebase-admin": "^8.10.0",
-    "firebase-functions": "^3.6.1"
+    "firebase-functions": "^3.6.1",
+    "body-parser": "^1.19.0",
+    "concurrently": "^3.5.1",
+    "cors": "^2.8.5",
+    "crawler": "^1.2.2",
+    "express": "^4.16.2",
+    "link-check": "^4.5.1",
+    "table": "^6.0.3",
+    "website-scraper": "^4.2.3"
   },
   "devDependencies": {
     "eslint": "^5.12.0",

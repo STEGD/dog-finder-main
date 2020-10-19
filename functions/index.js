@@ -4,7 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser')
 const cors = require('cors');
 const app = express();
-const serviceAccount = require("../permission.json");
+const serviceAccount = require("./permission.json");
 
 app.use(cors({ origin: true }));
 
@@ -23,34 +23,14 @@ var jsonParser = bodyParser.json()
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 // Endpoints
-app.get('/test1', (req, res) => {
-  res.json({ message: "We got a response back from the Express server!" });
-});
-
-app.get('/test2', (req, res) => {
-  res.json({ message: "I see you found the second test endpoint. Welcome!" });
-});
-
-app.get('/test3', (req, res) => {
-  res.json({ message: "Fear my power of adding a new button to the project!" });
-});
-
-app.get('/test4', (req, res) => {
-  res.json({ message: "This is not a test of the Cal Poly Pomona Alert System" });
-});
-
-app.get('/test5', (req, res) => {
-  res.json({ message: "Please help, still cannot see text when button is pressed. Signed Justin." });
-});
-
 app.post('/api/create', jsonParser, (req, res) => {
     (async () => {
         const collectionName = `items`;
-        const docName = `/${req.body.id}/`;
+        const docName = `/${req.body.data.id}/`;
         const dataObj = {
-            id: req.body.id,
-            item: req.body.item,
-            value: req.body.value
+            id: req.body.data.id,
+            item: req.body.data.item,
+            value: req.body.data.value
         }
         try {
           await db.collection(collectionName).doc(docName)
@@ -64,6 +44,13 @@ app.post('/api/create', jsonParser, (req, res) => {
           return res.status(500).send(error);
         }
       })();
+});
+
+app.get('/api/test', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "You found the test endpoint!"
+  })
 });
 
 const port = 5000;
