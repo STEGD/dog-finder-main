@@ -1,16 +1,15 @@
 .main-footer{
     background-color: lightblue;
-    position: fixed;
-    left: 0;
-    bottom: 0;
     width: 100%;
-    text-align: left;
-    padding: 5px;
+    min-height: 20px;
+}
+.container {
+    padding: 10px;
 }
 
 .paw-logo {
     height: 20px;
-    padding-right: 10px;
+    padding: 0 10px;
     float: left;
 }
 
