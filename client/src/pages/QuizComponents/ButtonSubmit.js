@@ -11,11 +11,18 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
+
+
+
 export default function ButtonSubmit(props) {
+
+ 
+
+
     const classes = useStyles();
     return (
         <div>
-            <Button variant ="contained" color="primary">
+            <Button variant ="contained" color="primary" onClick={handleClick}>
                 {props.text}
             </Button>
         </div>
