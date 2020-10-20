@@ -1,0 +1,18 @@
+.slider-container{
+    margin: auto;
+    display: grid;
+    grid-gap: 5px;
+    padding: 0;
+    list-style: none;
+    grid-template-areas: 
+    'slider-title-Question slider-title-Question'
+    'slider-bar slider-bar';
+}
+
+.slider-title-Question{
+    grid-area: slider-title-Question ;
+}
+.slider-bar{
+    grid-area: slider-bar;
+    padding-left: 20px;
+}
