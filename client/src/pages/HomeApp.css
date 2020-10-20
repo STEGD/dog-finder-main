@@ -53,6 +53,7 @@ using gap 10px for left & right */
 .card-display {
     display: grid;
     padding: 20px;
+    padding-left: 75px;
     row-gap: 10px;
     grid-template-columns: 25% 25% 25% 25%;
 }
