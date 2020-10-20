@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './HomeApp.css'
+import CardLayout from './QuizComponents/CardLayout'
 
 
 export default function HomeApp() {
@@ -16,10 +17,20 @@ export default function HomeApp() {
             </header>
             </div>
             <div className="about-section">
-                About us
+                {/*About us section*/}
             </div>
             <div className="pet-display">
-                Meet, API call to pets
+                {/* Meet, API call to pets*/}
+                <div className='card-display'>
+                <CardLayout />
+                <CardLayout />
+                <CardLayout />
+                <CardLayout />
+                <CardLayout />
+                <CardLayout />
+                <CardLayout />
+                <CardLayout />
+                </div>
             </div>
 
         </div>
