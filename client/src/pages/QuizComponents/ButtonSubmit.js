@@ -22,7 +22,7 @@ export default function ButtonSubmit(props) {
     const classes = useStyles();
     return (
         <div>
-            <Button variant ="contained" color="primary" onClick={handleClick}>
+            <Button variant ="contained" color="primary" >
                 {props.text}
             </Button>
         </div>
