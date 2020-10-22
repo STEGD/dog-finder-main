@@ -11,8 +11,11 @@
 
 .slider-title-Question{
     grid-area: slider-title-Question ;
+    display: flex;
+    justify-content: left;
 }
 .slider-bar{
     grid-area: slider-bar;
-    padding-left: 20px;
+    display: flex;
+    justify-content: left;
 }

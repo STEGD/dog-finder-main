@@ -1,61 +1,61 @@
-.quiz-container h1{
+/*.quiz-container h1{
     
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     text-decoration: underline;
-}*
+}*/
 .quiz-container{    
     
     background: white;
     display: grid;
     grid-gap: 0px;
-    grid-template-columns: 1fr, 1fr;
+    
     list-style: none;
     grid-template-areas:
-    ' .   . '
-    '. question-container-1'
+    ' title title '
+    'question-container-1 question-container-1'
     'question-container-2 question-container-2'
     'question-container-3 question-container-3'
-    '. question-container-4'
+    'question-container-4 question-container-4'
+    '. .'
     '. submit-container';
     align-items: start;
 }
 
+.title{
+    grid-area: title ;
+    display: flex;
+    justify-content: center;
+}
+
 .question-container-1{
     grid-area: question-container-1;
-    flex-direction: column;
+    grid-gap:0;
+    display: flex;
     justify-content: center;
-    
+
 }
 .question-container-2{
     grid-area: question-container-2;
-    grid-gap:0;
     display: flex;
-    align-items: start;
     justify-content: left;
 }
 .question-container-3{
     grid-area: question-container-3;
-    grid-gap:0;
     display: flex;
-    align-items: start;
     justify-content: left;
 }
 .question-container-4{
     grid-area: question-container-4;
-    grid-gap:0;
     display: flex;
-    align-items: start;
-    justify-content: left;
+    justify-content: center;
 }
 .submit-container{
     grid-area: submit-container;
-    grid-gap:0;
     display: flex;
-    align-items: start;
-    justify-content: left;
+    justify-content: center;
 }
 
 @media screen and (max-width:400px){
