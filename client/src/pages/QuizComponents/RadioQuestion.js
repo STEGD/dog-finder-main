@@ -7,6 +7,7 @@ export default function RadioQuestion(props) {
 
     const handleChange=(e)=>{
        setResponse(e.target.value)
+       console.log(response)
     }
     return (
         <div className="grid-container">
