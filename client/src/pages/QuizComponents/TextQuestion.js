@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React  from 'react';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import './TextQuestion.css';
@@ -15,13 +15,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function TextQuestion(props) {
     const classes = useStyles();
-    const [valueInfo, setValueInfo] = useState("");
     
-    const handleChange = e =>{
-      console.log(`Typed => ${e.target.value}`);
-      setValueInfo(e.target.value);
-      props.onChange({valueInfo});
-    }
+  
     return (
         <div className="text-container">
             <form className={classes.root} noValidate autoComplete="off">
