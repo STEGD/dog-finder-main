@@ -15,10 +15,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function TextQuestion(props) {
     const classes = useStyles();
-    const [value, setValue] = useState("");
+    const [valueInfo, setValueInfo] = useState("");
+    
     const handleChange = e =>{
       console.log(`Typed => ${e.target.value}`);
-      setValue(e.target.value);
+      setValueInfo(e.target.value);
+      props.onChange({valueInfo});
     }
     return (
         <div className="text-container">
@@ -28,8 +30,7 @@ export default function TextQuestion(props) {
                     id="standard-number"
                     label="Number"
                     type="number"
-                    value={value}
-                    onChange={handleChange}
+                    onChange={(event) => props.onChange(event.target.value)}                   
                     InputLabelProps={{
                         shrink: true,
                     }}
