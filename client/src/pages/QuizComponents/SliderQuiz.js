@@ -17,11 +17,12 @@ function valuetext(value){
 
 export default function SliderQuiz(props) {
     const classes= useStyles();
-    const [valueInput, setValueInput] = useState("option1")
+    const [valueInput, setValueInput] = useState("")
 
     const handleChange=(e,val)=>{
         setValueInput(val)
         console.log(valueInput)  
+        props.onChange(valueInput)
       }
     return (
         <div className={classes.root}>

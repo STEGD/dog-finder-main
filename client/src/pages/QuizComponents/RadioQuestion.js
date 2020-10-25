@@ -3,11 +3,13 @@ import {Radio} from '@material-ui/core'
 import "./RadioQuestion.css";
 
 export default function RadioQuestion(props) {
-    const [response, setResponse] = useState("option1")
+    const [response, setResponse] = useState("")
 
     const handleChange=(e)=>{
        setResponse(e.target.value)
        console.log(response)
+       props.onChange(e.target.value)
+       console.log("done")
     }
     return (
         <div className="grid-container">
@@ -28,6 +30,7 @@ export default function RadioQuestion(props) {
                 checked ={response ==="B"}
                 color ="primary"
                 onChange={handleChange}
+
                 />
                 <p>{props.AnswerB}</p>
             </div>
@@ -45,6 +48,8 @@ export default function RadioQuestion(props) {
                 checked ={response ==="D"}
                 color ="secondary"
                 onChange={handleChange}
+                
+
                 />
                 <p>{props.AnswerD}</p>
             </div>

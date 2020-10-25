@@ -1,11 +1,18 @@
-import React from 'react';
+import React,{useState} from 'react';
 import RadioQuestion from './QuizComponents/RadioQuestion';
 import TextQuestion from './QuizComponents/TextQuestion';
 import ButtonSubmit from './QuizComponents/ButtonSubmit';
 import SliderQuiz from './QuizComponents/SliderQuiz';
 import "./quizApp.css";
 
-export default function quizApp() {
+export default function quizApp(props) {
+    
+    const[question1, setQuestion1]= useState('hello1')
+    const[question2, setQuestion2]= useState('hello2')
+    const[question3, setQuestion3]= useState('hello3')
+    const[question4, setQuestion4]= useState('hello4')
+    const[question5, setQuestion5]= useState('')
+
     return (
         <div className="quiz-container">
             <div className="title">
@@ -13,7 +20,9 @@ export default function quizApp() {
             </div>
             
             <div className="question-container-1">
-                <TextQuestion question="How much money can you spend for your pet?" />
+                <TextQuestion question="How much money can you spend for your pet?" 
+                onChange={value=> setQuestion1(value)}
+                />
             </div>
             <div className="question-container-2">
             <RadioQuestion 
@@ -22,24 +31,38 @@ export default function quizApp() {
                 AnswerB="Barely active"
                 AnswerC="Moderatly active"
                 AnswerD="Extremly active"
+                onChange={value=> setQuestion2(value)}
             />
             </div>
             <div className="question-container-3">
+
                 <RadioQuestion 
                         question="What is your current living situation"
                         AnswerA="Apartment"
                         AnswerB="House with backyard"
                         AnswerC="House without backyard"
                         AnswerD="D"
+                        onChange={value=> setQuestion3(value)}
+
                     />
             </div>
             <div className="question-container-4">
             <SliderQuiz quesiton="How much free time do you have to spend with your pet? 
-            Rate is measured in hours "/>
+            Rate is measured in hours "
+            onChange={value=> setQuestion4(value)}
+
+            />
             </div>
             <div className="submit-container">
-                <ButtonSubmit text="Submit"/>
+                <ButtonSubmit text="Submit"
+                question1Response ={question1}
+                question2Response ={question2}
+                question3Response ={question3}
+                question4Response ={question4}
+                />
+
             </div>
+            
         </div>
     )
 }
