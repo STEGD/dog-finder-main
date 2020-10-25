@@ -7,11 +7,10 @@ import "./quizApp.css";
 
 export default function quizApp(props) {
     
-    const[question1, setQuestion1]= useState('hello1')
-    const[question2, setQuestion2]= useState('hello2')
-    const[question3, setQuestion3]= useState('hello3')
-    const[question4, setQuestion4]= useState('hello4')
-    const[question5, setQuestion5]= useState('')
+    const[question1, setQuestion1]= useState('')
+    const[question2, setQuestion2]= useState('')
+    const[question3, setQuestion3]= useState('')
+    const[question4, setQuestion4]= useState('')
 
     return (
         <div className="quiz-container">
