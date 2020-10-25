@@ -11,7 +11,6 @@ const useStyles =makeStyles({
 });
 
 function valuetext(value){
-    let output = `${value}`
     return value + " hrs"
 }
 
