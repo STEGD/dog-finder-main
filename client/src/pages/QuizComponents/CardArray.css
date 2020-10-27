@@ -1,0 +1,16 @@
+
+.grid-container-q{
+    display: grid;
+    grid-gap: 20px;   
+    background: green;  
+}
+.grid-container-CardArray{
+    margin: auto;
+    display: grid;
+    grid-gap: 20px;
+    padding: 10px;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}

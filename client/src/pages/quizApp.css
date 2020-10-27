@@ -55,10 +55,10 @@
 .submit-container{
     grid-area: submit-container;
     display: flex;
-    justify-content: center;
+    justify-content: left;
 }
 
-@media screen and (max-width:400px){
+@media screen and (max-width:200px){
     .top-container{
         grid-template-areas:
         'question-container-1'
