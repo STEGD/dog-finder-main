@@ -8,7 +8,7 @@ import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import CardContent from '@material-ui/core/CardContent'
 import HouseImage from '../pics/logo.png'
-import './CardLayout.css'
+import './CardArray.css'
 
 const useStyles = makeStyles({
     root: {

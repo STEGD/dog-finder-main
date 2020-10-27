@@ -2,6 +2,7 @@ import React, {useStates} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import CardLayout from './CardLayout'
+import CardArray from './CardArray'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -28,9 +29,6 @@ export default function ButtonSubmit(props) {
         }
       
       }
-    
-
-
 
     const classes = useStyles();
     let q1 = `${props.question1Response}`;
@@ -44,7 +42,7 @@ export default function ButtonSubmit(props) {
 
                 {props.text}   
             </Button>
-            { showResults ? <CardLayout />: null }
+            { showResults ? <CardArray />: null }
            
         </div>
     )
