@@ -12,6 +12,10 @@ export default function quizApp(props) {
     const[question3, setQuestion3]= useState('')
     const[question4, setQuestion4]= useState('')
     const[question5, setQuestion5]= useState('')
+    const[question6, setQuestion6]= useState('')
+    const[question7, setQuestion7]= useState('')
+    const[question8, setQuestion8]= useState('')
+    const[question9, setQuestion9]= useState('')
 
     return (
         <div className="quiz-container">
@@ -35,6 +39,28 @@ export default function quizApp(props) {
                     onChange={value=> setQuestion2(value)}
                 />
             </div>
+
+            <div className="radio-question-container">
+                <RadioQuestion 
+                    question="How active or energetic do you want your pet to be?"
+                    AnswerA="Not active"
+                    AnswerB="Barely active"
+                    AnswerC="Moderatly active"
+                    AnswerD="Extremly active"
+                    onChange={value=> setQuestion3(value)}
+                />
+            </div>
+
+            <div className="radio-question-container">
+                <RadioQuestion 
+                    question="What size of pet can you accomodate??"
+                    AnswerA="Tiny (Lives in a Tank)"
+                    AnswerB="Small"
+                    AnswerC="Medium"
+                    AnswerD="Large"
+                    onChange={value=> setQuestion4(value)}
+                />
+            </div>
             
             <div className="radio-question-container">
                 <RadioQuestion 
@@ -43,14 +69,38 @@ export default function quizApp(props) {
                     AnswerB="House with backyard"
                     AnswerC="House without backyard"
                     AnswerD="D"
-                    onChange={value=> setQuestion3(value)}
+                    onChange={value=> setQuestion5(value)}
+                />
+            </div>
+
+            <div className="radio-question-container">
+                <RadioQuestion 
+                    question="Do you have kids under the age of 10?"
+                    AnswerA="Yes"
+                    AnswerB="No"
+                    onChange={value=> setQuestion6(value)}
+                />
+            </div>
+
+            <div className="radio-question-container">
+                <RadioQuestion 
+                    question="Are you allergic to fur?"
+                    AnswerA="Yes"
+                    AnswerB="No"
+                    onChange={value=> setQuestion7(value)}
                 />
             </div>
 
             <div className="slider-question-container">
                 <SliderQuiz quesiton="How much free time do you have to spend with your pet? 
                 Rate is measured in hours "
-                onChange={value=> setQuestion4(value)}
+                onChange={value=> setQuestion8(value)}
+                />
+            </div>
+
+            <div className="slider-question-container">
+                <SliderQuiz quesiton="On a scale of 1-10, how experienced are you with owning a pet? "
+                onChange={value=> setQuestion9(value)}
                 />
             </div>
 
@@ -61,6 +111,10 @@ export default function quizApp(props) {
                 question3Response ={question3}
                 question4Response ={question4}
                 question5Response ={question5}
+                question6Response ={question6}
+                question7Response ={question7}
+                question8Response ={question8}
+                question9Response ={question9}
                 />
             </div>
         
