@@ -19,7 +19,7 @@ const useStyles = makeStyles({
     },
 });
 
-export default function CardLayout() {
+export default function CardLayout({details}) {
     const classes = useStyles()
     return (
     
@@ -33,7 +33,7 @@ export default function CardLayout() {
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
-                    Da Pad
+                    {details.type}
                 </Typography>
                 <Typography variant = "body2" color = "textSecondary" component = "p">
                     This is the chill house Edgar made during our design process though.
