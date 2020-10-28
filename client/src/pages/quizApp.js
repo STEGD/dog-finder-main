@@ -36,6 +36,8 @@ export default function quizApp(props) {
                     AnswerB="Barely active"
                     AnswerC="Moderatly active"
                     AnswerD="Extremly active"
+                    hideRadioButtonC = "true"
+                    hideRadioButtonD = "true"
                     onChange={value=> setQuestion2(value)}
                 />
             </div>
@@ -47,6 +49,8 @@ export default function quizApp(props) {
                     AnswerB="Barely active"
                     AnswerC="Moderatly active"
                     AnswerD="Extremly active"
+                    hideRadioButtonC = "true"
+                    hideRadioButtonD = "true"
                     onChange={value=> setQuestion3(value)}
                 />
             </div>
@@ -58,6 +62,8 @@ export default function quizApp(props) {
                     AnswerB="Small"
                     AnswerC="Medium"
                     AnswerD="Large"
+                    hideRadioButtonC = "true"
+                    hideRadioButtonD = "true"
                     onChange={value=> setQuestion4(value)}
                 />
             </div>
@@ -69,6 +75,8 @@ export default function quizApp(props) {
                     AnswerB="House with backyard"
                     AnswerC="House without backyard"
                     AnswerD="D"
+                    hideRadioButtonC = "true"
+                    hideRadioButtonD = "false"
                     onChange={value=> setQuestion5(value)}
                 />
             </div>
@@ -78,6 +86,8 @@ export default function quizApp(props) {
                     question="Do you have kids under the age of 10?"
                     AnswerA="Yes"
                     AnswerB="No"
+                    hideRadioButtonC = "false"
+                    hideRadioButtonD = "false"
                     onChange={value=> setQuestion6(value)}
                 />
             </div>
@@ -87,6 +97,8 @@ export default function quizApp(props) {
                     question="Are you allergic to fur?"
                     AnswerA="Yes"
                     AnswerB="No"
+                    hideRadioButtonC = "false"
+                    hideRadioButtonD = "false"
                     onChange={value=> setQuestion7(value)}
                 />
             </div>
