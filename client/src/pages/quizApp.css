@@ -9,7 +9,6 @@
 .quiz-container{    
     
     background: white;
-    display: grid;
     grid-gap: 0px;
     
     list-style: none;
@@ -30,35 +29,33 @@
     justify-content: center;
 }
 
-.question-container-1{
-    grid-area: question-container-1;
-    grid-gap:0;
-    display: flex;
-    justify-content: center;
+.text-question-container{
+    display: table;
+    margin: auto;
+    text-align: center;
+    padding: 10px;
 
 }
-.question-container-2{
-    grid-area: question-container-2;
-    display: flex;
-    justify-content: left;
+.radio-question-container{
+    display: table;
+    margin: auto;
+    text-align: center;
+    padding: 10px;
 }
-.question-container-3{
-    grid-area: question-container-3;
-    display: flex;
-    justify-content: left;
-}
-.question-container-4{
-    grid-area: question-container-4;
-    display: flex;
-    justify-content: center;
+
+.slider-question-container{
+    display: table;
+    margin: auto;
+    text-align: center;
+    padding: 10px;
 }
 .submit-container{
     grid-area: submit-container;
-    display: flex;
-    justify-content: center;
+    padding: 10px;
+    text-align: center;
 }
 
-@media screen and (max-width:400px){
+@media screen and (max-width:200px){
     .top-container{
         grid-template-areas:
         'question-container-1'
