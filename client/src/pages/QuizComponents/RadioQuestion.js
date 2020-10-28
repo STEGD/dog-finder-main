@@ -2,8 +2,24 @@ import React, {useState} from 'react';
 import {Radio} from '@material-ui/core'
 import "./RadioQuestion.css";
 
+function setDisplay(hide){
+        if( hide === "true"){
+            hide = true;
+        }else{
+            hide =false;
+        }
+        return hide;
+}
+
 export default function RadioQuestion(props) {
     const [response, setResponse] = useState("")
+    let displayC = `${prop.hideRadioButtonC}`
+    let displayD = `${prop.hideRadioButtonD}`
+    
+
+    const [showDisplayC, setShowDisplayC] = useState()
+    const [showDisplayD, setShowDisplayD] = useState()
+
 
     const handleChange=(e)=>{
        setResponse(e.target.value)
@@ -32,6 +48,7 @@ export default function RadioQuestion(props) {
                 />
                 <p>{props.AnswerB}</p>
             </div>
+        { showDisplayC ?
             <div className="responseC">
                 
                 <Radio value="C" 
@@ -41,16 +58,17 @@ export default function RadioQuestion(props) {
                 />
                 <p>{props.AnswerC}</p>
             </div>
+        :null}
+        { showDisplayD ?
             <div className="responseD">
                 <Radio value="D" 
                 checked ={response ==="D"}
                 color ="secondary"
                 onChange={handleChange}
-                
-
                 />
                 <p>{props.AnswerD}</p>
             </div>
+            : null }
         </div>
     )
 }
