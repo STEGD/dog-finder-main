@@ -4,6 +4,8 @@
 'node_modules/'
 'client/node_modules/'
 
+client/debug.log
+
 # testing
 /coverage
 
