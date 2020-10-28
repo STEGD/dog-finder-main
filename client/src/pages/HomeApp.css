@@ -48,6 +48,16 @@ add media queries? */
 .about-section {
     padding: 5px;
 }
+.inner-about {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.inner-about p {
+    font-size: large;
+}
+
 /* Goes overboard for some reason? in width
 using gap 10px for left & right */
 .card-display {

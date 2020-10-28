@@ -2,11 +2,56 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './HomeApp.css'
 import CardLayout from './QuizComponents/CardLayout'
-
+import SearchIcon from '@material-ui/icons/Search';
+import PetsIcon from '@material-ui/icons/Pets';
+import GroupIcon from '@material-ui/icons/Group';
 
 export default function HomeApp() {
 
+    const CLIENT_API = "6snBCifrbbnELidkQhNaBXMYYKIGdgxuCavApCCtgugZf1b6BW"
+    const KEY = "yQbiFZkzE4JVoy2fOJJ6hhQBkZhrC9ruRTAlIBvb"
+    //get access token
+    var access_token = ''
+    var data_fetch = ''
+    //curl -d "grant_type=client_credentials&client_id=6snBCifrbbnELidkQhNaBXMYYKIGdgxuCavApCCtgugZf1b6BW&
+    //client_secret=yQbiFZkzE4JVoy2fOJJ6hhQBkZhrC9ruRTAlIBvb" https://api.petfinder.com/v2/oauth2/token
+
+    //use the url to get the specified information
+
+    //curl -H "Authorization: Bearer {KEY_TOKEN}" https://api.petfinder.com/v2/animals?location=91762
+
+    //acquire access token to use
+  access_token = fetch("https://api.petfinder.com/v2/oauth2/token", {
+  body: "grant_type=client_credentials&client_id="+CLIENT_API+"&client_secret="+KEY,
+  headers: {
+    "Content-Type": "application/x-www-form-urlencoded"
+  },
+  method: "POST"
+})
+.then(res => res.json())
+.then(data => data.access_token)
+.then(access => {
+    //have to assign in order to use it
+    var token_access = access
+    console.log(token_access)
+    //fetch the data with the access token
+    data_fetch = fetch("https://api.petfinder.com/v2/animals", {
+    headers: {
+      Authorization: "Bearer " + token_access
+    }
+  }).then(res => res.json()).then(data => console.log(data))
+})
+
+//used the console.log access token
+// NEED TO FIX
+// data_fetch = fetch("https://api.petfinder.com/v2/animals", {
+//     headers: {
+//       Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI2c25CQ2lmcmJibkVMaWRrUWhOYUJYTVlZS0lHZGd4dUNhdkFwQ0N0Z3VnWmYxYjZCVyIsImp0aSI6ImM0YWVkN2Q1MjNlNTBmOTE4MzY3ZTEyYWFlZDVkNWVlYzI3MGFhOGY2MWE4ZjA1ZjI0ZDRkNTkzNTg4ZWQxYTcwODQzZTJjNGE5YTE5YzZlIiwiaWF0IjoxNjAzNzgxMjgzLCJuYmYiOjE2MDM3ODEyODMsImV4cCI6MTYwMzc4NDg4Mywic3ViIjoiIiwic2NvcGVzIjpbXX0.ISXshC5HMeTLp16mPnInwGWV1dD2kXBFa0CWppxtrtl83ChKckvXUVccFwhzIBlI2TO-1FF00UlfXajOUsN3Ovcg9mZ_Nn01wGWmQt_V2aJNxQEEkHZHmwjkQRc1OzpDOmQiVUi9c_j9RCYRhFTJHHdR-KEwrCbOFdJIDQOxLX69gafz7IC963jmkDnGR27mbWTK5HGSS-5QzczEvpgnQ8KMLEdqLjsPbdJ2sTsVS0Y9_AZLTg2Px7LgmXTNVKOifnS-uwdE8sV7u4PY0PMwAUDFwvKv0YkZDSk6KXxQE48nl41z-gkRQsyIXU1fkjotj0C18OjwfkDAWE-cbERccQ"
+//     }
+//   }).then(res => res.json()).then(data => console.log(data))
+
     return (
+
         <div>
             <div className = 'top-container'>
             <header className = 'landing-info'>
@@ -17,7 +62,15 @@ export default function HomeApp() {
             </header>
             </div>
             <div className="about-section">
-                {/*About us section*/}
+                <div className = "inner-about">
+                {/*About us section, maybe add 3 sections with icons*/}
+                <SearchIcon/>
+                <p>Find suitable pets by taking our quiz</p>
+                <PetsIcon />
+                <p>Explore nearby pets from local shelters</p>
+                <GroupIcon/>
+                <p>Support the charities!</p>
+            </div>
             </div>
             <div className="pet-display">
                 {/* Meet, API call to pets*/}
