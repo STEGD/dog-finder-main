@@ -106,12 +106,16 @@ export default function quizApp(props) {
             <div className="slider-question-container">
                 <SliderQuiz quesiton="How much free time do you have to spend with your pet? 
                 Rate is measured in hours "
+                MaxValue = '6'
+                increaseValue = '0.5'
                 onChange={value=> setQuestion8(value)}
                 />
             </div>
 
             <div className="slider-question-container">
                 <SliderQuiz quesiton="On a scale of 1-10, how experienced are you with owning a pet? "
+                MaxValue = '10'
+                increaseValue = '1'
                 onChange={value=> setQuestion9(value)}
                 />
             </div>
