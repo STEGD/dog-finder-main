@@ -17,7 +17,9 @@ function valuetext(value){
 export default function SliderQuiz(props) {
     const classes= useStyles();
     const [valueInput, setValueInput] = useState("")
-
+    const increaseBy = Number(`${props.increaseValue}`)
+    const setMax = Number(`${props.MaxValue}`)
+    
     const handleChange=(e,val)=>{
         setValueInput(val)
         console.log(valueInput)  
@@ -38,10 +40,10 @@ export default function SliderQuiz(props) {
                 onChange={handleChange}
                 aria-labelledby="discrete-slider"
                 valueLabelDisplay="auto"
-                step={0.5}
+                step={increaseBy}
                 marks
                 min={0}
-                max={6}
+                max={setMax}
             />
             </div>
             </div>

@@ -1,21 +1,20 @@
 import React from 'react'
-import CardLayout from './CardLayout'
+import QuizCardLayout from './QuizCardLayout'
 import './CardArray.css'
 
 export default function CardArray() {
     return (
-        <div className="grid-container-q">
-        <div className="grid-container-cardarray">
-            <CardLayout />
-            <CardLayout />
-            <CardLayout />
-            <CardLayout />
-            <CardLayout />
-            <CardLayout />
-            <CardLayout />
-            <CardLayout />
+      
+        <div className="card-display-submit">
+            <QuizCardLayout petName="dog image" description="description "/>
+            <QuizCardLayout petName="cat image" description="description "/>
+            <QuizCardLayout petName="bird image" description="description "/>
+            <QuizCardLayout petName="fish image" description="description "/>
+            <QuizCardLayout petName="hamster image" description="description "/>
+            <QuizCardLayout petName="rodent image" description="description "/>
+            <QuizCardLayout petName="dog image" description="description "/>
+            <QuizCardLayout petName="dog image" description="description "/>
 
-        </div>
         </div>
     )
 }
