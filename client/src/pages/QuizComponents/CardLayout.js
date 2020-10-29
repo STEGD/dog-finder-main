@@ -25,7 +25,7 @@ export default function CardLayout({details}) {
     const classes = useStyles()
     const [image_pic, image_update] = useState(HouseImage)
     //get the image from details else assign default
-    // need to check if the details have info to display it if not default values!!!
+    // need to check if the details have info to display it does not use default values!!!
     useEffect(() => {
 
         if(details.primary_photo_cropped !== null)
