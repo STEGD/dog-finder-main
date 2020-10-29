@@ -10,36 +10,44 @@ import CardContent from '@material-ui/core/CardContent'
 import HouseImage from '../pics/logo.png'
 
 const useStyles = makeStyles({
-  root: {
-    maxWidth: 345,
-  },
+    root: {
+        maxWidth: 300,
+    },
+    media: {
+        height: 140,
+    },
 });
 
 export default function QuizCardLayout(props) {
-  const classes = useStyles();
+    const classes = useStyles()
+    return (
+    
+       <Card className= {classes.root}>
+        <CardActionArea>
+            <CardMedia 
+                className = {classes.media}
+                image = {HouseImage}
+                title = "House Image"
+            />
+            <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                {props.petName}
+                </Typography>
+                <Typography variant = "body2" color = "textSecondary" component = "p">
+                {props.description}
+                </Typography>
+            </CardContent>
+        </CardActionArea>
 
-  return (
-    <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia
-          className = {classes.media}
-          image = {HouseImage}
-          title = "House Image"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {props.petName}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {props.description}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
-      </CardActions>
-    </Card>
-  );
+        <CardActions>
+            <Button size = "small" color = "primary">
+                Learn More
+            </Button>
+        </CardActions>
+       </Card>
+      
+    )
 }
+
+
+
