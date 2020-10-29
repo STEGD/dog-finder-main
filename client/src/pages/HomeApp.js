@@ -10,7 +10,49 @@ export default function HomeApp() {
 
     const [data_fetch, setData] = useState('')
     
+    const CLIENT_API = "6snBCifrbbnELidkQhNaBXMYYKIGdgxuCavApCCtgugZf1b6BW"
+    // new reset secret key
+    const KEY = "IMGegdf8JdQG9bY23bnClDvnUrPKDDaedDCFJuZN"
+    //get access token
+    //curl -d "grant_type=client_credentials&client_id=6snBCifrbbnELidkQhNaBXMYYKIGdgxuCavApCCtgugZf1b6BW&
+    //client_secret=yQbiFZkzE4JVoy2fOJJ6hhQBkZhrC9ruRTAlIBvb" https://api.petfinder.com/v2/oauth2/token
 
+    //use the url to get the specified information
+
+    //curl -H "Authorization: Bearer {KEY_TOKEN}" https://api.petfinder.com/v2/animals?location=91762
+
+    //acquire access token to use
+
+    // need use effect to update 
+    // may need to convert to class
+    // may need to move fetch within this
+    // run once [] empty arg
+
+    //setData(data) in the end then use the data_fetch for the cards
+    // we want the animals JSON not the other info.
+    useEffect(() => {
+        fetch("https://api.petfinder.com/v2/oauth2/token", {
+            body: "grant_type=client_credentials&client_id="+CLIENT_API+"&client_secret="+KEY,
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            method: "POST"
+          })
+          .then(res => res.json())
+          .then(data => data.access_token)
+          .then(access => {
+              //have to assign in order to use it
+              var token_access = access
+              console.log(token_access)
+              //fetch the data with the access token
+              fetch("https://api.petfinder.com/v2/animals", {
+              headers: {
+                Authorization: "Bearer " + token_access
+              },
+              method: "GET"
+            }).then(res => res.json()).then(data => setData(data.animals))
+          })
+    }, [])
 
 //used the console.log access token
 // NEED TO FIX
