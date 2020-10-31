@@ -1,0 +1,30 @@
+.main-footer{
+    background-color: lightblue;
+    width: 100%;
+    min-height: 20px;
+}
+.container {
+    padding: 10px;
+}
+
+.paw-logo {
+    height: 20px;
+    padding: 0 10px;
+    float: left;
+}
+
+.icon-logo {
+    float: right;
+    padding-right: 25px;
+    height:14px;
+    width:14px;
+}
+
+.icon-logo {
+    cursor: pointer;
+}
+
+p{
+    font-weight: bold;
+    font-size: 10px;
+}
