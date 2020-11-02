@@ -15,6 +15,13 @@ export default function RadioQuestion(props) {
     const [response, setResponse] = useState("")
     let displayC = `${props.hideRadioButtonC}`
     let displayD = `${props.hideRadioButtonD}`
+    const A = `${props.AnswerA}`
+    const B = `${props.AnswerB}`
+    const C = `${props.AnswerC}`
+    const D = `${props.AnswerD}`
+
+
+
     displayC = setDisplay(displayC);
     displayD = setDisplay(displayD);
 
@@ -24,7 +31,17 @@ export default function RadioQuestion(props) {
 
     const handleChange=(e)=>{
        setResponse(e.target.value)
-       props.onChange(e.target.value)
+       let answer = "";
+       if(e.target.value === 'A'){
+        answer = A;
+       }else if(e.target.value === 'B'){
+        answer = B;
+       }else if(e.target.value === 'C'){
+        answer = C;
+       }else if(e.target.value === 'D'){
+        answer = D;
+       }
+       props.onChange(answer)
     }
     return (
         <div className="grid-container">
@@ -38,7 +55,7 @@ export default function RadioQuestion(props) {
                 color ="primary"
                 onChange={handleChange}
                 />
-                <p>{props.AnswerA}</p>
+                <p>{A}</p>
             </div>
             <div className="responseB">
                 <Radio value="B" 
@@ -47,7 +64,7 @@ export default function RadioQuestion(props) {
                 onChange={handleChange}
 
                 />
-                <p>{props.AnswerB}</p>
+                <p>{B}</p>
             </div>
         { showDisplayC ?
             <div className="responseC">
@@ -57,7 +74,7 @@ export default function RadioQuestion(props) {
                 color ="secondary"
                 onChange={handleChange}
                 />
-                <p>{props.AnswerC}</p>
+                <p>{C}</p>
             </div>
         :null}
         { showDisplayD ?
@@ -67,7 +84,7 @@ export default function RadioQuestion(props) {
                 color ="secondary"
                 onChange={handleChange}
                 />
-                <p>{props.AnswerD}</p>
+                <p>{D}</p>
             </div>
             : null }
         </div>
