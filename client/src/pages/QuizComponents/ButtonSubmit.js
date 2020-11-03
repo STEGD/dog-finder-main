@@ -19,11 +19,11 @@ export default function ButtonSubmit(props) {
 
     const [showResults, setShowResults] = React.useState(false);
 
-    function dothis( Q1, Q2, Q3, Q4, Q5,Q6,Q7,Q8,Q9) {
+    function dothis( Q1, Q2, Q3, Q4, Q5,Q6,Q7,Q8,Q9,Q10) {
         if(Q1 !== "" && Q2 !== "" && Q3 !== "" && Q4 !== "" 
         && Q5 !== "" && Q6 !== ""&& Q7 !== "" && Q8 !== "" && Q9 !== ""){
-            alert("Answers\n" + Q1 + "\n" + Q3 + "\n" +Q2 + "\n" + Q4 
-            + "\n" + Q5+ "\n" + Q6+ "\n" + Q7+ "\n" + Q8 + "\n" + Q9);
+            alert("Answers\n" + Q1 + "\n" + Q2 + "\n" +Q3 + "\n" + Q4 
+            + "\n" + Q5+ "\n" + Q6+ "\n" + Q7+ "\n" + Q8 + "\n" + Q9 + "\n" +Q10);
             setShowResults(true) 
              
         }else{
@@ -42,11 +42,13 @@ export default function ButtonSubmit(props) {
     let q7 = `${props.question7Response}`;
     let q8 = `${props.question8Response}`;
     let q9 = `${props.question9Response}`;
+    let q10 = `${props.question10Response}`;
+
       
     return (
         <div>
             <Button variant ="contained" color="primary"
-                 onClick={()=>{dothis(q1, q2, q3, q4, q5, q6, q7, q8, q9)}}>
+                 onClick={()=>{dothis(q1, q2, q3, q4, q5, q6, q7, q8, q9, q10)}}>
 
                 {props.text}   
             </Button>

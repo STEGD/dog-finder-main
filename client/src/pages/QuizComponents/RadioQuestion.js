@@ -6,7 +6,7 @@ function setDisplay(hide){
         if( hide === "true"){
             hide = true;
         }else{
-            hide =false;
+            hide = false;
         }
         return hide;
 }

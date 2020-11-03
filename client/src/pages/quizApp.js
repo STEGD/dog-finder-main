@@ -16,6 +16,8 @@ export default function quizApp(props) {
     const[question7, setQuestion7]= useState('')
     const[question8, setQuestion8]= useState('')
     const[question9, setQuestion9]= useState('')
+    const[question10, setQuestion10]= useState('')
+
 
     return (
         <div className="quiz-container">
@@ -29,22 +31,15 @@ export default function quizApp(props) {
                 />
             </div>
 
-            <div className="radio-question-container">
-                <RadioQuestion 
-                    question="How active are you or how active can you be for your pet?"
-                    AnswerA="Not active"
-                    AnswerB="Barely active"
-                    AnswerC="Moderatly active"
-                    AnswerD="Extremly active"
-                    hideRadioButtonC = "true"
-                    hideRadioButtonD = "true"
-                    onChange={value=> setQuestion2(value)}
+            <div className="text-question-container">
+                <TextQuestion question="How much money can you spend on your pet for the first year?" 
+                onChange={value=> setQuestion2(value)}
                 />
             </div>
 
             <div className="radio-question-container">
                 <RadioQuestion 
-                    question="How active or energetic do you want your pet to be?"
+                    question="How active are you or how active can you be for your pet?"
                     AnswerA="Not active"
                     AnswerB="Barely active"
                     AnswerC="Moderatly active"
@@ -57,30 +52,32 @@ export default function quizApp(props) {
 
             <div className="radio-question-container">
                 <RadioQuestion 
-                    question="What size of pet can you accomodate??"
-                    AnswerA="Tiny (Lives in a Tank)"
-                    AnswerB="Small"
-                    AnswerC="Medium"
-                    AnswerD="Large"
+                    question="How active or energetic do you want your pet to be?"
+                    AnswerA="Not active"
+                    AnswerB="Barely active"
+                    AnswerC="Moderatly active"
+                    AnswerD="Extremly active"
                     hideRadioButtonC = "true"
                     hideRadioButtonD = "true"
                     onChange={value=> setQuestion4(value)}
                 />
             </div>
-            
+
             <div className="radio-question-container">
                 <RadioQuestion 
-                    question="What is your current living situation?"
-                    AnswerA="Apartment"
-                    AnswerB="House with backyard"
-                    AnswerC="House without backyard"
-                    AnswerD="D"
+                    question="What size of pet can you accomodate??"
+                    AnswerA="Tiny (Lives in a Tank)"
+                    AnswerB="Small"
+                    AnswerC="Moderate Experience"
+                    AnswerD="Extremly Experineced"
                     hideRadioButtonC = "true"
-                    hideRadioButtonD = "false"
+                    hideRadioButtonD = "true"
                     onChange={value=> setQuestion5(value)}
                 />
             </div>
+            
 
+    
             <div className="radio-question-container">
                 <RadioQuestion 
                     question="Do you have kids under the age of 10?"
@@ -94,7 +91,7 @@ export default function quizApp(props) {
 
             <div className="radio-question-container">
                 <RadioQuestion 
-                    question="Are you allergic to fur?"
+                    question="Do you have kids over the age of 10?"
                     AnswerA="Yes"
                     AnswerB="No"
                     hideRadioButtonC = "false"
@@ -103,12 +100,23 @@ export default function quizApp(props) {
                 />
             </div>
 
+            <div className="radio-question-container">
+                <RadioQuestion 
+                    question="Are you allergic to fur?"
+                    AnswerA="Yes"
+                    AnswerB="No"
+                    hideRadioButtonC = "false"
+                    hideRadioButtonD = "false"
+                    onChange={value=> setQuestion8(value)}
+                />
+            </div>
+
             <div className="slider-question-container">
                 <SliderQuiz quesiton="How much free time do you have to spend with your pet? 
                 Rate is measured in hours "
                 MaxValue = '6'
                 increaseValue = '0.5'
-                onChange={value=> setQuestion8(value)}
+                onChange={value=> setQuestion9(value)}
                 />
             </div>
 
@@ -116,7 +124,7 @@ export default function quizApp(props) {
                 <SliderQuiz quesiton="On a scale of 1-10, how experienced are you with owning a pet? "
                 MaxValue = '10'
                 increaseValue = '1'
-                onChange={value=> setQuestion9(value)}
+                onChange={value=> setQuestion10(value)}
                 />
             </div>
 
@@ -131,6 +139,8 @@ export default function quizApp(props) {
                 question7Response ={question7}
                 question8Response ={question8}
                 question9Response ={question9}
+                question10Response ={question10}
+
                 />
             </div>
         
