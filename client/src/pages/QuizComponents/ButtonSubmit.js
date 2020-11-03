@@ -22,8 +22,7 @@ export default function ButtonSubmit(props) {
 
     function dothis( Q1, Q2, Q3, Q4, Q5,Q6,Q7,Q8,Q9,Q10) {
         if(Q1 !== "" && Q2 !== "" && Q3 !== "" && Q4 !== "" 
-
-        && Q5 !== "" && Q6 !== ""&& Q7 !== "" && Q8 !== "" && Q9 !== ""){
+        && Q5 !== "" && Q6 !== ""&& Q7 !== "" && Q8 !== "" && Q9 !== "" && Q10 !== ""){
             alert("Answers\n" + Q1 + "\n" + Q2 + "\n" +Q3 + "\n" + Q4 
             + "\n" + Q5+ "\n" + Q6+ "\n" + Q7+ "\n" + Q8 + "\n" + Q9 + "\n" +Q10);
             setShowResults(true) 
