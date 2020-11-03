@@ -16,17 +16,11 @@ export default function RadioQuestion(props) {
     let displayC = `${props.hideRadioButtonC}`
     let displayD = setDisplay(displayD);
 
-    let A = `${props.AnswerA}`
-    let B = `${props.AnswerB}`
-    let C = `${props.AnswerC}`
-    let D = `${props.AnswerD}`
-
-
     displayC = setDisplay(displayC);
     displayD = setDisplay(displayD);
 
     let A = `${props.AnswerA}`
-    let B = `${props.AnswerB}`
+    let B = `${props.AnswerB}` 
     let C = `${props.AnswerC}`
     let D = `${props.AnswerD}`
 

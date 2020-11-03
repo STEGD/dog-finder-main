@@ -4,7 +4,7 @@ import PetApp from './pages/PetApp';
 import quizApp from './pages/quizApp';
 import HomeApp from './pages/HomeApp';
 import Navbar from './pages/Navbar';
-import Footer from './components/Footer'
+import Footer from './Components/Footer'
 
 
 
