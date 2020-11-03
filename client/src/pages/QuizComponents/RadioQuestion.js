@@ -14,7 +14,7 @@ function setDisplay(hide){
 export default function RadioQuestion(props) {
     const [response, setResponse] = useState("")
     let displayC = `${props.hideRadioButtonC}`
-    let displayD = setDisplay(displayD);
+    let displayD = `${props.hideRadioButtonD}`
 
     displayC = setDisplay(displayC);
     displayD = setDisplay(displayD);
