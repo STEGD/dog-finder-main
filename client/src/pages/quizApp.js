@@ -68,8 +68,8 @@ export default function quizApp(props) {
                     question="What size of pet can you accomodate??"
                     AnswerA="Tiny (Lives in a Tank)"
                     AnswerB="Small"
-                    AnswerC="Moderate Experience"
-                    AnswerD="Extremly Experineced"
+                    AnswerC="Medium"
+                    AnswerD="Large"
                     hideRadioButtonC = "true"
                     hideRadioButtonD = "true"
                     onChange={value=> setQuestion5(value)}
