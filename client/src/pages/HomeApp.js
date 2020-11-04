@@ -77,12 +77,12 @@ export default function HomeApp() {
             <div className="about-section">
                 <div className = "inner-about">
                 {/*About us section, maybe add 3 sections with icons*/}
-                <SearchIcon/>
-                <p>Find suitable pets by taking our quiz</p>
-                <PetsIcon />
-                <p>Explore nearby pets from local shelters</p>
-                <GroupIcon/>
-                <p>Support the charities!</p>
+                <SearchIcon className = "about-icon"/>
+                <p>Find your pet!</p>
+                <PetsIcon className = "about-icon" />
+                <p>Explore nearby pets!</p>
+                <GroupIcon className = "about-icon"/>
+                <p>Support charities!</p>
             </div>
             </div>
             <div className="pet-display">

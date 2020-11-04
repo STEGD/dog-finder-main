@@ -12,7 +12,7 @@ export default function Footer() {
       <div className="container">
         
           <img className = 'paw-logo' src={Paw} alt="paw" />
-        <p>Copyright &copy; 2020 STEDG. All rights reserved. {<AiOutlineGithub className= 'icon-logo' onClick = {gitHubLink}/>}</p>
+        <p className = "footer-p">Copyright &copy; 2020 STEDG. All rights reserved. {<AiOutlineGithub className= 'icon-logo' onClick = {gitHubLink}/>}</p>
       
       </div>
     </div>
