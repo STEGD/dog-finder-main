@@ -9,7 +9,6 @@ export default function PetApp() {
     return (
         <div>
         <div className="grid-container">
-           <p>This is the pet info page</p>
            <div className="searchBar">
            <ComboBoxPET type="dog"/>
            <ComboBoxPET type="breed"/>

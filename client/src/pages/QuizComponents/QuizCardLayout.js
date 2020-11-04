@@ -8,6 +8,8 @@ import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import CardContent from '@material-ui/core/CardContent'
 import HouseImage from '../pics/logo.png'
+import {Link} from 'react-router-dom'
+import './QuizCardLayout.css'
 
 const useStyles = makeStyles({
     root: {
@@ -20,6 +22,7 @@ const useStyles = makeStyles({
 
 export default function QuizCardLayout(props) {
     const classes = useStyles()
+
     return (
     
        <Card className= {classes.root}>
@@ -40,9 +43,11 @@ export default function QuizCardLayout(props) {
         </CardActionArea>
 
         <CardActions>
+            <Link to="/petlayout" target="_blank" className="link-more">
             <Button size = "small" color = "primary">
                 Learn More
             </Button>
+            </Link>
         </CardActions>
        </Card>
       
