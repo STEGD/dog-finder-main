@@ -75,15 +75,43 @@ export default function HomeApp() {
             </header>
             </div>
             <div className="about-section">
-                <div className = "inner-about">
                 {/*About us section, maybe add 3 sections with icons*/}
-                <SearchIcon className = "about-icon"/>
-                <p>Find your pet!</p>
-                <PetsIcon className = "about-icon" />
-                <p>Explore nearby pets!</p>
-                <GroupIcon className = "about-icon"/>
-                <p>Support charities!</p>
-            </div>
+                    <section className = "containerSection-survey">
+                        <h3 className = "hidden">Find your pet!</h3>
+                        <a className ="aboutCardLink">
+                            Find your pet!
+                            <section className = "description-container">
+                                <h4 className = "link-title">Find your pet!</h4>
+                                <p className = "link-description">
+
+
+                                    Find your pet!
+                                
+                                    
+                                    </p>
+                            </section>
+                        </a>
+                    </section>
+                    <section className = "containerSection-pet">
+                        <h3 className = "hidden">Explore nearby pets!</h3>              
+                        <a className ="aboutCardLink">
+                            Explore nearby pets!
+                            <section className = "description-container">
+                                <h4 className = "link-title">Explore nearby pets!</h4>
+                                <p className = "link-description">Explore nearby pets!</p>
+                            </section>
+                        </a>
+                    </section>
+                    <section className = "containerSection-charity">
+                        <h3 className = "hidden">Support charities!</h3>
+                        <a className ="aboutCardLink">
+                            Support charities!
+                            <section className = "description-container">
+                                <h4 className = "link-title">Support charities!</h4>
+                                <p className = "link-description">Support charities!</p>
+                            </section>
+                        </a>
+                    </section>
             </div>
             <div className="pet-display">
                 {/* Meet, API call to pets*/}
