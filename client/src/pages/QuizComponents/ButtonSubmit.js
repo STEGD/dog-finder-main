@@ -50,10 +50,7 @@ export default function ButtonSubmit(props) {
     return (
         <div>
             <Button variant ="contained" color="primary"
-
                  onClick={()=>{dothis(q1, q2, q3, q4, q5, q6, q7, q8, q9, q10)}}>
-
-
                 {props.text}   
             </Button>
             { showResults ? <CardArray />: null }

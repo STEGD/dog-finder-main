@@ -1,3 +1,25 @@
 .link-more{
     text-decoration: none;
 }
+
+.quiz-card-header{
+    margin: auto;
+    display: grid;
+    grid-gap: 5px;
+    padding: 10px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.quiz-card-header-size{
+    text-align: right;
+    padding-right: 10px;
+}
+
+.quiz-card-pet-name {
+    text-align: center;
+    text-decoration: underline;
+}
+
+.quiz-button{
+    text-align: center;
+}
