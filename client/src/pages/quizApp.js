@@ -24,19 +24,16 @@ export default function quizApp(props) {
             <div className="title">
                 <h1>Pet Survey</h1>
             </div>
-            
             <div className="text-question-container">
                 <TextQuestion question="How much money per year can you spend for your pet?" 
                 onChange={value=> setQuestion1(value)}
                 />
             </div>
-
             <div className="text-question-container">
                 <TextQuestion question="How much money can you spend on your pet for the first year?" 
                 onChange={value=> setQuestion2(value)}
                 />
             </div>
-
             <div className="radio-question-container">
                 <RadioQuestion 
                     question="How active are you or how active can you be for your pet?"
@@ -49,7 +46,6 @@ export default function quizApp(props) {
                     onChange={value=> setQuestion3(value)}
                 />
             </div>
-
             <div className="radio-question-container">
                 <RadioQuestion 
                     question="How active or energetic do you want your pet to be?"
@@ -62,7 +58,6 @@ export default function quizApp(props) {
                     onChange={value=> setQuestion4(value)}
                 />
             </div>
-
             <div className="radio-question-container">
                 <RadioQuestion 
                     question="What size of pet can you accomodate??"
@@ -75,9 +70,6 @@ export default function quizApp(props) {
                     onChange={value=> setQuestion5(value)}
                 />
             </div>
-            
-
-    
             <div className="radio-question-container">
                 <RadioQuestion 
                     question="Do you have kids under the age of 10?"
@@ -88,7 +80,6 @@ export default function quizApp(props) {
                     onChange={value=> setQuestion6(value)}
                 />
             </div>
-
             <div className="radio-question-container">
                 <RadioQuestion 
                     question="Do you have kids over the age of 10?"
@@ -99,7 +90,6 @@ export default function quizApp(props) {
                     onChange={value=> setQuestion7(value)}
                 />
             </div>
-
             <div className="radio-question-container">
                 <RadioQuestion 
                     question="Are you allergic to fur?"
@@ -110,7 +100,6 @@ export default function quizApp(props) {
                     onChange={value=> setQuestion8(value)}
                 />
             </div>
-
             <div className="slider-question-container">
                 <SliderQuiz quesiton="How much free time do you have to spend with your pet? 
                 Rate is measured in hours "
@@ -119,7 +108,6 @@ export default function quizApp(props) {
                 onChange={value=> setQuestion9(value)}
                 />
             </div>
-
             <div className="slider-question-container">
                 <SliderQuiz quesiton="On a scale of 1-10, how experienced are you with owning a pet? "
                 MaxValue = '10'
@@ -127,7 +115,6 @@ export default function quizApp(props) {
                 onChange={value=> setQuestion10(value)}
                 />
             </div>
-
             <div className="submit-container">
                 <ButtonSubmit text="Submit"
                 question1Response ={question1}
@@ -140,7 +127,6 @@ export default function quizApp(props) {
                 question8Response ={question8}
                 question9Response ={question9}
                 question10Response ={question10}
-
                 />
             </div>
         

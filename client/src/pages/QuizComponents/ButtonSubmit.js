@@ -13,20 +13,38 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-
-
 export default function ButtonSubmit(props) {
 
     const [showResults, setShowResults] = React.useState(false);
 
 
     function dothis( Q1, Q2, Q3, Q4, Q5,Q6,Q7,Q8,Q9,Q10) {
-        if(Q1 !== "" && Q2 !== "" && Q3 !== "" && Q4 !== "" 
-        && Q5 !== "" && Q6 !== ""&& Q7 !== "" && Q8 !== "" && Q9 !== "" && Q10 !== ""){
-            alert("Answers\n" + Q1 + "\n" + Q2 + "\n" +Q3 + "\n" + Q4 
-            + "\n" + Q5+ "\n" + Q6+ "\n" + Q7+ "\n" + Q8 + "\n" + Q9 + "\n" +Q10);
-            setShowResults(true) 
-            // MARK: TO-DO Retrieve responses and prepare to match up with DB responses
+        let baseURL =  'https://us-central1-dog-finder-fae9d.cloudfunctions.net/app';
+        if(Q1 !== "" && Q2 !== "" && Q3 !== "" && Q4 !== "" && Q5 !== "" && Q6 !== ""&& Q7 !== "" && Q8 !== "" && Q9 !== "" && Q10 !== "") {
+            const dataObj = {
+                "costPerYear": parseInt(Q1),
+                "firstYearCost": parseInt(Q2),
+                "personalActivityLevel": parseInt(Q3),
+                "petActivityLevel": parseInt(Q4),
+                "petSize": parseInt(Q5),
+                "kidsUnderTen": Q6 == 1 ? true : false,    // 1 = Yes
+                "kidsOverTen": Q7 == 1 ? true: false,      // 1 = Yes
+                "allergies": Q8 == 1 ? true : false,       // 1 = Yes
+                "freeTime": parseInt(Q9),
+                "petExperience": parseInt(Q10)
+            };
+
+            const reqOptions = {
+                method: 'POST',
+                headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 'data': dataObj })
+            }
+
+            fetch(`${baseURL}/api/submit`, reqOptions)
+                .then(res => res.json())
+                .then(data => console.log(data))
+
+            // setShowResults(true) 
             
         } else {
             alert("Please answer all the question");
