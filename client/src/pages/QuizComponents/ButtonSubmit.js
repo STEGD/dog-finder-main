@@ -20,22 +20,19 @@ export default function ButtonSubmit(props) {
 
     function dothis( Q1, Q2, Q3, Q4, Q5,Q6,Q7,Q8,Q9,Q10) {
         let baseURL =  'https://us-central1-dog-finder-fae9d.cloudfunctions.net/app';
-        // `${baseURL}/api/submit`
         if(Q1 !== "" && Q2 !== "" && Q3 !== "" && Q4 !== "" && Q5 !== "" && Q6 !== ""&& Q7 !== "" && Q8 !== "" && Q9 !== "" && Q10 !== "") {
             const dataObj = {
-                "costPerYear": Q1,
-                "firstYearCost": Q2,
-                "personalActivityLevel": Q3,
-                "petActivityLevel": Q4,
-                "petSize": Q5,
+                "costPerYear": parseInt(Q1),
+                "firstYearCost": parseInt(Q2),
+                "personalActivityLevel": parseInt(Q3),
+                "petActivityLevel": parseInt(Q4),
+                "petSize": parseInt(Q5),
                 "kidsUnderTen": Q6 == 1 ? true : false,    // 1 = Yes
                 "kidsOverTen": Q7 == 1 ? true: false,      // 1 = Yes
                 "allergies": Q8 == 1 ? true : false,       // 1 = Yes
-                "freeTime": Q9,
-                "petExperience": Q10
+                "freeTime": parseInt(Q9),
+                "petExperience": parseInt(Q10)
             };
-
-            console.log(dataObj);
 
             const reqOptions = {
                 method: 'POST',
@@ -43,7 +40,7 @@ export default function ButtonSubmit(props) {
                 body: JSON.stringify({ 'data': dataObj })
             }
 
-            fetch('/api/submit', reqOptions)
+            fetch(`${baseURL}/api/submit`, reqOptions)
                 .then(res => res.json())
                 .then(data => console.log(data))
 
