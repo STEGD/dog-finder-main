@@ -13,6 +13,12 @@ admin.initializeApp({
   databaseURL: "https://dog-finder-fae9d.firebaseio.com"
 });
 
+/*
+  URL Example: https://firebasestorage.googleapis.com/v0/b/dog-finder-fae9d.appspot.com/o/ballPython.jpeg?alt=media&token=d198224a-6339-4ad1-80c3-cde62f4d0299
+
+  URL Template: https://firebasestorage.googleapis.com/v0/b/dog-finder-fae9d.appspot.com/o/[IMG URL]?alt=media&token=[ACCESS TOKEN]
+*/
+
 // Firebase DB
 const db = admin.firestore();
 
@@ -23,35 +29,57 @@ var jsonParser = bodyParser.json()
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 // Endpoints
-app.post('/api/create', jsonParser, (req, res) => {
-    (async () => {
-        const collectionName = `items`;
-        const docName = `/${req.body.data.id}/`;
-        const dataObj = {
-            id: req.body.data.id,
-            item: req.body.data.item,
-            value: req.body.data.value
-        }
-        try {
-          await db.collection(collectionName).doc(docName)
-              .create(dataObj);
-          return res.status(200).json({
-              success: true,
-              dataObj
-          });
-        } catch (error) {
-          console.log(error);
-          return res.status(500).send(error);
-        }
-      })();
-});
-
 app.get('/api/test', (req, res) => {
   res.status(200).json({
     success: true,
     message: "You found the test endpoint!"
   })
 });
+
+app.post('/api/submit', jsonParser, async (req, res) => {
+  const { 
+    petActivityLevel, 
+    freeTime, 
+    costPerYear, 
+    firstYearCost, 
+    kidsOverTen, 
+    kidsUnderTen, 
+    personalActivityLevel, 
+    petExperience,
+    allergies,
+    petSize
+  } = req.body.data;
+  const snapshot = await db.collection('pets').where('activityLevel', '<=', petActivityLevel).get();
+  const values = snapshot.docs.map(doc => doc.data());
+
+  const filterFreeTime = values.filter(data => data.timeNeeded <= freeTime);
+  const filterAnnualCost = filterFreeTime.filter(data => data.annualCost <= costPerYear);
+  const filterFirstYearCost = filterAnnualCost.filter(data => data.firstYearCost <= firstYearCost);
+  const filterKidsOverTen = filterFirstYearCost.filter(data => data.oldKidOk === kidsOverTen);
+  const filterKidsUnderTen = filterKidsOverTen.filter(data => data.youngKidOk === kidsUnderTen);
+  const filterPersonalActivityLevel = filterKidsUnderTen.filter(data => data.energyNeeded <= personalActivityLevel);
+  const filterPetExperience = filterPersonalActivityLevel.filter(data => data.ownerExp <= petExperience);
+  const filterPetAllergies = filterPetExperience.filter(data => {
+    if (allergies) {
+      return data.type !== "Dog" && data.type !== "Bird" && data.type !== "Small Mammal" && data.type !== "Cat"
+    } else {
+      return data;
+    }
+  });
+  const filterPetSize = filterPetAllergies.filter(data => {
+    if (petSize === 3) {
+      return data.size === "Tiny" || data.size === "Small" || data.size === "Medium";
+    } else if (petSize === 2) {
+      return data.size === "Tiny" || data.size === "Small";
+    } else if (petSize === 1) {
+      return data.size === "Tiny";
+    } else {
+      return data;
+    }
+  })
+
+  return res.status(200).json({ success: true, dataLength: filterPetSize.length, value: filterPetSize })
+})
 
 const port = 5000;
 

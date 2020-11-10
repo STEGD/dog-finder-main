@@ -22,7 +22,6 @@ export default function SliderQuiz(props) {
     
     const handleChange=(e,val)=>{
         setValueInput(val)
-        console.log(valueInput)  
         props.onChange(valueInput)
       }
     return (
