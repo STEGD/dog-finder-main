@@ -2,13 +2,14 @@ import React, {useState} from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
-const options = ['dog', 'cat', 'bird', 'hamster', 'fish'];
+const options = ['1', '2', '3', '4', '5'];
 
 
 export default function ComboBoxPET(props) {
-  const [value, setValue] = useState(options[0]);
+  const [value, setValue] = useState('');
   const [inputValue, setInputValue] = useState('');
-
+  let text = `${props.combotext}`
+  //setInputValue(text)
   return (
     <div>
     
@@ -17,10 +18,13 @@ export default function ComboBoxPET(props) {
         value={value}
         onChange={(event, newValue) => {
           setValue(newValue);
+          props.onChange(newValue);
         }}
         inputValue={inputValue}
         onInputChange={(event, newInputValue) => {
           setInputValue(newInputValue);
+          props.onChange(newInputValue);
+
         }}
         id="controllable-states-demo"
         options={options}

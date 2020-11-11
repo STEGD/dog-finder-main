@@ -12,7 +12,7 @@ export default function Navbar() {
                     <ul>
                     <li className = "navlist"><Link to="/homeapp">Home</Link></li>
                     <li className = "navlist"><Link to="/quizapp">Survey</Link></li>
-                    <li className = "navlist"><Link to="/petapp">Pet App</Link></li>
+                    <li className = "navlist"><Link to="/petapp">Pets</Link></li>
                     </ul>
                 </nav> 
         </div>
