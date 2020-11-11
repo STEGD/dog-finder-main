@@ -34,13 +34,13 @@ export default function RadioQuestion(props) {
        let answers = "";
        let choice = e.target.value;
         if(choice === "A"){
-            answers = A;
+            answers = 1;
         }else if(choice === "B"){
-            answers = B;
+            answers = 2;
         }else if(choice === "C"){
-            answers = C;
+            answers = 3;
         }else if(choice === "D"){
-            answers = D;
+            answers = 4;
         }
        props.onChange(answers)
     }
@@ -51,7 +51,6 @@ export default function RadioQuestion(props) {
             <h3>{props.question}</h3>
             </div>
             <div className="responseA">
-                
                 <Radio value="A" 
                 checked ={response ==="A"}
                 color ="primary"
@@ -64,13 +63,11 @@ export default function RadioQuestion(props) {
                 checked ={response ==="B"}
                 color ="primary"
                 onChange={handleChange}
-
                 />
                 <p>{B}</p>
             </div>
         { showDisplayC ?
             <div className="responseC">
-                
                 <Radio value="C" 
                 checked ={response ==="C"}
                 color ="secondary"
