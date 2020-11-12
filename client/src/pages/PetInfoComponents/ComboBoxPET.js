@@ -14,8 +14,18 @@ export default function ComboBoxPET(props) {
   let petType3 = `${props.pet3}`
   let petType4 = `${props.pet4}`
   let petType5 = `${props.pet5}`
+  let petType6 = `${props.pet6}`
+  let petType7 = `${props.pet7}`
 
-  const options = [petType1, petType2, petType3, petType4, petType5];
+  let options = []
+  if(petType5 !== ""){
+     options = [petType1, petType2, petType3, petType4, petType5, petType6,petType7];
+  }else{
+     options = [petType1, petType2, petType3, petType4];
+  }
+ 
+
+
   //setInputValue(text)
   return (
     <div>
