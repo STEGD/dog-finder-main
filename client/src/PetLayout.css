@@ -1,0 +1,51 @@
+.wrapper-petlayout {
+    padding: 10px;
+}
+.grid-contents {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    text-align: center;
+    padding: 10px;
+
+}
+.pet-info-section {
+    display: grid;
+    grid-template: "typ typ" auto
+                           "cst act" auto
+                           "sze ene" auto;
+    text-align: center;
+    gap: 10px;
+}
+.type {
+    grid-area: typ;
+}
+.cost {
+    grid-area: cst;
+}
+.activity {
+    grid-area: act;
+}
+.size {
+    grid-area: sze;
+}
+.energy {
+    grid-area: ene;
+}
+.cost-section {
+    display: grid;
+    gap: 10px;
+    padding: 10px;
+}
+.exp-time-section {
+    display: grid;
+    gap: 10px;
+    padding: 10px;
+}
+.wrapper-petlayout div {
+    min-height: 100px;
+}
+/* Alternate divs */
+
+/* div.grid-contents > div:nth-of-type(odd){
+    color: grey;
+} */
