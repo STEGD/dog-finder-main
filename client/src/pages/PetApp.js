@@ -21,9 +21,8 @@ export default function PetApp() {
     const numbers = ["1", "2", "3", "4", "5","6","7","8"];
 
 
-    function dothis(q1, q2, q3){
-        alert("response /n" + q1 + '/n'+q2+'/n'+q3);
-        setShowResults(false);
+    function submitOnClick(q1, q2, q3){
+        alert("response \n" + q1 + '\n'+q2+'\n'+q3);
         setShowResults(true)
     }
 
@@ -40,19 +39,34 @@ export default function PetApp() {
            {/*<div className="searchBar"> */}
             <form onSubmit={getSearch} className="searchBar">
            <ComboBoxPET 
+           pet1="dog"
+           pet2="cat"
+           pet3="bird"
+           pet4="fish"
+           pet5="hamster"
            combotext=""
            type="pet"
            onChange={value=> setQuestion1(value)}/>
            <ComboBoxPET 
            combotext=""
+           pet1="tiny"
+           pet2="small"
+           pet3="medium"
+           pet4="large"
+           pet5=""
            type="size"
            onChange={value=> setQuestion2(value)}/>
            <ComboBoxPET 
-           combotext="hello"
+           combotext=""
+           pet1="2"
+           pet2="3"
+           pet3="4"
+           pet4="5"
+           pet5="6"
            type="cost"
            onChange={value=> setQuestion3(value)}/>
             <Button variant ="contained" color="primary"
-                 onClick={()=>{dothis(question1, question2,question3)}}>
+                 onClick={()=>{submitOnClick(question1, question2,question3)}}>
                 SUBMIT  
             </Button>
             </form>
