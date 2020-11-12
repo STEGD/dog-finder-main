@@ -16,57 +16,59 @@ function AppearCard(props){
 export default function PetApp() {
     const[question1, setQuestion1]= useState('')
     const[question2, setQuestion2]= useState('')
-    const[question3, setQuestion3]= useState('')
+  
     const[showResults, setShowResults] = useState(false)
     const numbers = ["1", "2", "3", "4", "5","6","7","8"];
 
 
-    function submitOnClick(q1, q2, q3){
-        alert("response \n" + q1 + '\n'+q2+'\n'+q3);
-        setShowResults(true)
+    function submitOnClick(q1, q2){
+     let size = petSizeValue(q2);
+        alert("response \n" + q1 + '\n'+ size);
+       
+
+       // setShowResults(true)
     }
 
-    const getSearch = e =>{
-        e.preventDefault();
-       console.log(question1)
-       console.log(question2)
-       console.log(question3)
+    function petSizeValue(petSize){
+      // default size to Tiny 
+      let size = 1;
+      if(petSize === "Small"){
+        size = 2;
+      }else if(petSize ==="Medium"){
+        size = 3;
+      }else if(petSize === "Large"){
+        size = 4;
       }
-    
+      return size;
+    }
+
     return (
         <div>
         <div className="pet-info-grid-container">
            {/*<div className="searchBar"> */}
-            <form onSubmit={getSearch} className="searchBar">
+            <form  className="searchBar">
            <ComboBoxPET 
-           pet1="dog"
-           pet2="cat"
-           pet3="bird"
-           pet4="fish"
-           pet5="hamster"
+           pet1="Dog"
+           pet2="Cat"
+           pet3="Bird"
+           pet4="Fish"
+           pet5="Small Mammal"
+           pet6="Rock"
+           pet7="Reptile"
            combotext=""
            type="pet"
            onChange={value=> setQuestion1(value)}/>
            <ComboBoxPET 
            combotext=""
-           pet1="tiny"
-           pet2="small"
-           pet3="medium"
-           pet4="large"
+           pet1="Tiny"
+           pet2="Small"
+           pet3="Medium"
+           pet4="Large"
            pet5=""
            type="size"
            onChange={value=> setQuestion2(value)}/>
-           <ComboBoxPET 
-           combotext=""
-           pet1="2"
-           pet2="3"
-           pet3="4"
-           pet4="5"
-           pet5="6"
-           type="cost"
-           onChange={value=> setQuestion3(value)}/>
             <Button variant ="contained" color="primary"
-                 onClick={()=>{submitOnClick(question1, question2,question3)}}>
+                 onClick={()=>{submitOnClick(question1, question2)}}>
                 SUBMIT  
             </Button>
             </form>
@@ -83,7 +85,7 @@ export default function PetApp() {
         { showResults ?
         <div className="card-display-submit">
         {numbers.map(number =>( 
-          (number === question1 || number === question2 || number === question3) ?
+          (number === question1 || number === question2) ?
          <PetCard petName="name" description="description "/>
 
           : null
