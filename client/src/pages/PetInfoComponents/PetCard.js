@@ -9,7 +9,8 @@ import Typography from '@material-ui/core/Typography'
 import CardContent from '@material-ui/core/CardContent'
 import HouseImage from '../pics/logo.png'
 import {Link} from 'react-router-dom'
-import './QuizCardLayout.css'
+import '../QuizComponents/QuizCardLayout.css'
+
 
 const useStyles = makeStyles({
     root: {
@@ -20,49 +21,48 @@ const useStyles = makeStyles({
     },
 });
 
-export default function QuizCardLayout({details}) {
+export default function PetCard(props) {
     const classes = useStyles()
-    // how to add image 
 
     return (
     
        <Card className= {classes.root}>
            <div className="quiz-card-header">
            <Typography gutterBottom variant="body2" component="h2">
-                {details.type}
+                Type
                 </Typography>
                 <div className="quiz-card-header-size">
                 <Typography variant = "body2" color = "textSecondary" component = "p">
-                {details.size}
+                Size
                 </Typography>
                 </div>
            </div>
         <CardActionArea>
             <CardMedia 
                 className = {classes.media}
-                image = {details.imgURL}
-                title = {details.name}
+                image = {HouseImage}
+                title = "House Image"
             />
             <CardContent>
                 <div className="quiz-card-pet-name">
                 <Typography gutterBottom variant="h5" component="h2">
-                {details.name}
+                {props.petName}
                 </Typography>
                 </div>
                 <Typography variant = "body2" color = "textSecondary" component = "p">
-                Buy Cost: ${details.buyCost}
+                Buy Cost: $500
                 </Typography>
                 <Typography variant = "body2" color = "textSecondary" component = "p">
-                First year cost: ${details.firstYearCost}
+                First year cost: $500
                 </Typography>
                 <Typography variant = "body2" color = "textSecondary" component = "p">
-                Annuak Cost: ${details.annualCost}
+                Annuak Cost: $500
                 </Typography>
                 <Typography variant = "body2" color = "textSecondary" component = "p">
-                Activity Level: ${details.activityLevel}
+                Activity Level: 3
                 </Typography>
                 <Typography variant = "body2" color = "textSecondary" component = "p">
-                Owner Eperience: ${details.ownerExp}
+                Owner Eperience: 2  
                 </Typography>
             </CardContent>
         </CardActionArea>
@@ -80,6 +80,3 @@ export default function QuizCardLayout({details}) {
       
     )
 }
-
-
-

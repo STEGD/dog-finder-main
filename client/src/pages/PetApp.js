@@ -4,7 +4,7 @@ import ButtonSubmit from './QuizComponents/ButtonSubmit';
 import './PetApp.css'
 import CardArray from './QuizComponents/CardArray';
 import Button from '@material-ui/core/Button';
-import QuizCardLayout from './QuizComponents/QuizCardLayout'
+import PetCard from './PetInfoComponents/PetCard'
 
 function AppearCard(props){
     if(props.value === 1){
@@ -61,7 +61,7 @@ export default function PetApp() {
         { (showResults ===false) ?
         <div className="card-display-submit">
         {numbers.map(number =>( 
-          <QuizCardLayout petName="dog image" description="description "/>
+          <PetCard petName="dog image" description="description "/>
             ))}
          </div> 
             : null }
@@ -70,7 +70,7 @@ export default function PetApp() {
         <div className="card-display-submit">
         {numbers.map(number =>( 
           (number === question1 || number === question2 || number === question3) ?
-         <QuizCardLayout petName="name" description="description "/>
+         <PetCard petName="name" description="description "/>
 
           : null
             ))}
