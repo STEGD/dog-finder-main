@@ -81,6 +81,36 @@ app.post('/api/submit', jsonParser, async (req, res) => {
   return res.status(200).json({ success: true, dataLength: filterPetSize.length, value: filterPetSize })
 })
 
+app.post('/api/filterPets', jsonParser, async (req, res) => {
+  const {
+    petType,
+    petSize
+  } = req.body.data;
+
+  const snapshot = await db.collection('pets').get();
+  const values = snapshot.docs.map(doc => doc.data());
+
+  if (petType !== "" && petSize === "") {
+    const filteredPetType = values.filter(data => data.type === petType)
+    res.status(200).json({ success: true, dataLength: filteredPetType.length, value: filteredPetType })
+  } else if (petType === "" && petSize !== "") {
+    const filterPetSize = values.filter(data => {
+      if (petSize === 3) {
+        return data.size === "Tiny" || data.size === "Small" || data.size === "Medium";
+      } else if (petSize === 2) {
+        return data.size === "Tiny" || data.size === "Small";
+      } else if (petSize === 1) {
+        return data.size === "Tiny";
+      } else {
+        return data;
+      }
+    })
+    res.status(200).json({ success: true, dataLength: filterPetSize.length, value: filterPetSize })
+  } else {
+    res.status(200).json({ success: true, dataLength: values.length, value: values })
+  }
+})
+
 const port = 5000;
 
 app.listen(port, () => `Server running on port ${port}`);
