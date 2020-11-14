@@ -22,21 +22,34 @@ export default function PetApp() {
 
 
     function submitOnClick(q1, q2){
-     let size = petSizeValue(q2);
-        alert("response \n" + q1 + '\n'+ size);
-       
+      let size = q2 === "" ? "" : petSizeValue(q2);
+      let baseURL =  'https://us-central1-dog-finder-fae9d.cloudfunctions.net/app';
+      const dataObj = {
+          "petType": q1,
+          "petSize": size 
+      };
 
-       // setShowResults(true)
+      const reqOptions = {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 'data': dataObj })
+      }
+
+      fetch(`${baseURL}/api/filterPets`, reqOptions)
+        .then(res => res.json())
+        .then(data => console.log(data))
     }
 
     function petSizeValue(petSize){
       // default size to Tiny 
-      let size = 1;
-      if(petSize === "Small"){
+      let size;
+      if (petSize === 'Tiny') {
+        size = 1;
+      } else if (petSize === 'Small'){
         size = 2;
-      }else if(petSize ==="Medium"){
+      } else if (petSize === 'Medium'){
         size = 3;
-      }else if(petSize === "Large"){
+      } else if (petSize === 'Large'){
         size = 4;
       }
       return size;

@@ -1,9 +1,12 @@
 {
-  "main.css": "static/css/main.6d74495a.css",
-  "main.css.map": "static/css/main.6d74495a.css.map",
-  "main.js": "static/js/main.1ec27422.js",
-  "main.js.map": "static/js/main.1ec27422.js.map",
+  "main.css": "static/css/main.28ce4dc7.css",
+  "main.css.map": "static/css/main.28ce4dc7.css.map",
+  "main.js": "static/js/main.fb39ba99.js",
+  "main.js.map": "static/js/main.fb39ba99.js.map",
+  "static/media/charity_banner_crop.jpg": "static/media/charity_banner_crop.d248d4c3.jpg",
+  "static/media/clipboard_crop.jpg": "static/media/clipboard_crop.fa8fac21.jpg",
   "static/media/logo.png": "static/media/logo.a70c7f89.png",
   "static/media/paw.png": "static/media/paw.83816388.png",
+  "static/media/pet_banner_crop.jpg": "static/media/pet_banner_crop.de2b706d.jpg",
   "static/media/pet_image_transform.png": "static/media/pet_image_transform.8497293c.png"
 }

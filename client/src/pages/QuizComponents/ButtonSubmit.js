@@ -38,7 +38,6 @@ export default function ButtonSubmit(props) {
 
     
     function getData(){
-            console.log("valid Entry")
             let baseURL =  'https://us-central1-dog-finder-fae9d.cloudfunctions.net/app';
             const dataObj = {
                 "costPerYear": parseInt(q1),
