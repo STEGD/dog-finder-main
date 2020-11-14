@@ -35,7 +35,7 @@ export default function PetApp() {
         body: JSON.stringify({ 'data': dataObj })
       }
 
-      fetch(`/api/filterPets`, reqOptions)
+      fetch(`${baseURL}/api/filterPets`, reqOptions)
         .then(res => res.json())
         .then(data => console.log(data))
     }
