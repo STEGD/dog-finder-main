@@ -9,6 +9,9 @@ export default function PetApp() {
     const[petType, setPetType]= useState('')
     const[petSize, setPetSize]= useState('')
     const[petInformation, setPetInformation] = useState([])
+
+    const[filterSize, setFilterSize] = useState('')
+    const[filterType, setFilterType] = useState('')
   
     const[filterData, setFilterData] = useState(true)
     const[applyFilter, setApplyFilter] = useState(false)
@@ -47,7 +50,13 @@ export default function PetApp() {
 
     function submitOnClick(){
      // setFilterData(true);
-      setApplyFilter(true)
+     setFilterSize(petSize);
+     setFilterType(petType);
+      //setApplyFilter(true)
+    }
+    function clearOnClick(){
+      setFilterSize("");
+      setFilterType("");
     }
 
     function petSizeValue(petSize){
@@ -67,14 +76,14 @@ export default function PetApp() {
 
     function cardOutPut(pet){
       let data = petInformation[pet];
-      if(petType === (data.type).trim() && petSize === (data.size) &&
-      petType !== "" && petSize !== ""){
+      console.log(filterType + "  " + filterSize)
+      if(filterType === (data.type).trim() && filterSize === (data.size) ){
        return true;
-      }else if(petType === (data.type) && petSize === ""){
+      }else if(filterType === (data.type) && (filterSize === null || filterSize === "")){
         return true;
-      }else if(petSize ===(data.size) && petType === ""){
+      }else if(filterSize ===(data.size) && (filterType === null || filterType === "")){
         return true;
-    }else if(petType === "" && petSize === ""){
+    }else if(filterType === null && filterSize === null || filterType === "" && filterSize === ""  ){
       return true;
     }else {
       return false;
@@ -115,6 +124,10 @@ export default function PetApp() {
             <Button variant ="contained" color="primary"
                  onClick={()=>{submitOnClick()}}>
                 SUBMIT  
+            </Button>
+            <Button variant ="contained" color="primary"
+                 onClick={()=>{clearOnClick()}}>
+                Clear  
             </Button>
             </form>
         {/* </div> */}
