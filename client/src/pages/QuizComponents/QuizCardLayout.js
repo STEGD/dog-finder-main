@@ -51,7 +51,7 @@ export default function QuizCardLayout({details}) {
             <CardMedia 
                 className = {classes.media}
                 image = {img}
-                title = ""
+                title = {details.name}
             />
             <CardContent>
                 <div className="quiz-card-pet-name">
@@ -79,7 +79,10 @@ export default function QuizCardLayout({details}) {
 
         <CardActions>
             <div className="quiz-button">
-            <Link to="/petlayout" target="_blank" className="link-more">
+            <Link to={{
+                pathname: '/petlayout',
+                state: details
+            }} className="link-more" >
             <Button size = "small" color = "primary">
                 Learn More
             </Button>
