@@ -11,10 +11,12 @@ export default function PetApp() {
     const[petInformation, setPetInformation] = useState([])
   
     const[filterData, setFilterData] = useState(true)
+    const[applyFilter, setApplyFilter] = useState(false)
+
 
     useEffect( () =>{
       if(filterData){
-          alert("gathering data" + "\n" + petType + "\n" + petSize)
+         // alert("gathering data" + "\n" + petType + "\n" + petSize)
           getPetData();
           setFilterData(false);
       }
@@ -24,7 +26,7 @@ export default function PetApp() {
       let type = petType;
       let pSize = petSize;
       let size = pSize === "" ? "" : petSizeValue(petSize);
-      alert(type + " \n" + size)
+     // alert(type + " \n" + size)
       let baseURL =  'https://us-central1-dog-finder-fae9d.cloudfunctions.net/app';
       const dataObj = {
           "petType": type,
@@ -44,7 +46,8 @@ export default function PetApp() {
     }
 
     function submitOnClick(){
-      setFilterData(true);
+     // setFilterData(true);
+      setApplyFilter(true)
     }
 
     function petSizeValue(petSize){
@@ -61,6 +64,28 @@ export default function PetApp() {
       }
       return size;
     }
+
+    function cardOutPut(pet){
+      let data = petInformation[pet];
+      if(petType === (data.type).trim() && petSize === (data.size) &&
+      petType !== "" && petSize !== ""){
+       return true;
+      }else if(petType === (data.type) && petSize === ""){
+        return true;
+      }else if(petSize ===(data.size) && petType === ""){
+        return true;
+    }else if(petType === "" && petSize === ""){
+      return true;
+    }else {
+      return false;
+      }
+    }
+
+    function Card(pet){
+      return   <QuizCardLayout key ={pet} details={petInformation[pet]} />;
+    }
+
+    
 
     return (
         <div>
@@ -97,12 +122,13 @@ export default function PetApp() {
        
 
         <div className="card-display-submit">
-            {Object.keys(petInformation).map(pet =>{
-            return   <QuizCardLayout key ={pet} details={petInformation[pet]} />
-            }
+            {Object.keys(petInformation).map(pet =>(
+            (cardOutPut(pet)=== true) ?   
+              Card(pet)
+            : null
+            )
             )}
           </div> 
-
 
         {/*<CardArray />
         <CardArray />*/}
