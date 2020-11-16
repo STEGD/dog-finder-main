@@ -74,38 +74,43 @@ export default function HomeApp() {
                 {/*About us section, maybe add 3 sections with icons*/}
                     <section className = "containerSection-survey">
                         <h3 className = "hidden">Find your pet!</h3>
-                        <a className ="aboutCardLink">
-                            Find your pet!
+                        <a className ="aboutCardLink" href = "/quizapp">
                             <section className = "description-container">
-                                <h4 className = "link-title">Find your pet!</h4>
-                                <p className = "link-description">Find your pet!</p>
+                                <h4 className = "link-title">
+                                        Find your pet!
+                                </h4>
+                                <p className = "link-description">     
+                                        Click here take our survey!     
+                                </p>
                             </section>
                         </a>
                     </section>
                     <section className = "containerSection-pet">
                         <h3 className = "hidden">Explore nearby pets!</h3>              
-                        <a className ="aboutCardLink">
-                            Explore nearby pets!
+                        <a className ="aboutCardLink" href = "#pet-display">
                             <section className = "description-container">
-                                <h4 className = "link-title">Explore nearby pets!</h4>
-                                <p className = "link-description">Explore nearby pets!</p>
+                                <h4 className = "link-title">
+                                    Explore nearby pets!
+                                </h4>
+                                <p className = "link-description">
+                                    Click here to find friends near you!
+                                </p>
                             </section>
                         </a>
                     </section>
                     <section className = "containerSection-charity">
                         <h3 className = "hidden">Support charities!</h3>
-                        <a className ="aboutCardLink">
-                            Support charities!
+                        <a className ="aboutCardLink" href = "https://bestfriends.org/" target = "_blank">
                             <section className = "description-container">
                                 <h4 className = "link-title">Support charities!</h4>
-                                <p className = "link-description">Support charities!</p>
+                                <p className = "link-description">Click here to donate!</p>
                             </section>
                         </a>
                     </section>
             </div>
-            <div className="pet-display">
+            <div id ="pet-display">
                 {/* Meet, API call to pets*/}
-                <div className='card-display'>
+                <div className="card-display">
                 {/* Fix issue when displaying data*/}
 
                 {Object.keys(data_fetch).map(animal => {

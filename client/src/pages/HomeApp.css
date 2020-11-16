@@ -80,7 +80,7 @@ section[class *= "containerSection"]{
 }
 @media screen and (min-width: 1200px){
     section[class *= "containerSection"]{
-        height: 35vh;
+        height: 27vh;
         max-width: none;
     }
 }
@@ -102,7 +102,7 @@ a[class *= "aboutCardLink"]{
 
 @media screen and (min-width: 1200px){
     .description-container{
-        height: 35vh;
+        height: 27vh;
         background: rgba(51,51,51,0);
         transition: background .15s linear;
     }
@@ -129,6 +129,11 @@ a[class *= "aboutCardLink"]{
     color: #f7f7f7;
 }
 
+.link-title a{
+    text-decoration: none;
+    color: #f7f7f7;
+}
+
 h4 { 
     letter-spacing: 1px;
     margin-bottom: 1.5rem;
@@ -147,6 +152,11 @@ h4 {
     opacity: 0;
     text-align: center;
     font-size: 1rem;
+    color: #f7f7f7;
+    text-decoration: none;
+}
+
+.link-description a{
     color: #f7f7f7;
     text-decoration: none;
 }
