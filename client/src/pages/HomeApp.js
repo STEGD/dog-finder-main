@@ -2,9 +2,6 @@ import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import './HomeApp.css'
 import CardLayout from './QuizComponents/CardLayout'
-import SearchIcon from '@material-ui/icons/Search';
-import PetsIcon from '@material-ui/icons/Pets';
-import GroupIcon from '@material-ui/icons/Group';
 
 export default function HomeApp() {
 
@@ -43,7 +40,6 @@ export default function HomeApp() {
           .then(access => {
               //have to assign in order to use it
               var token_access = access
-              console.log(token_access)
               //fetch the data with the access token
               fetch("https://api.petfinder.com/v2/animals", {
               headers: {
@@ -82,13 +78,7 @@ export default function HomeApp() {
                             Find your pet!
                             <section className = "description-container">
                                 <h4 className = "link-title">Find your pet!</h4>
-                                <p className = "link-description">
-
-
-                                    Find your pet!
-                                
-                                    
-                                    </p>
+                                <p className = "link-description">Find your pet!</p>
                             </section>
                         </a>
                     </section>
