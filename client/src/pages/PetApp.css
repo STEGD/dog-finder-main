@@ -12,8 +12,9 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 .card-display-submit {
-    background: lightgreen;
+    background: rgb(184, 175, 175);
     display: grid;
+    margin-top: 20px;
     padding: 20px;
     padding-left: 20px;
     row-gap: 15px;

@@ -124,7 +124,9 @@ export default function quizApp(props) {
                 />
             </div>
             <div className="submit-container">
+                
                 <ButtonSubmit text="Submit"
+                
                 question1Response ={question1}
                 question2Response ={question2}
                 question3Response ={question3}
@@ -136,6 +138,7 @@ export default function quizApp(props) {
                 question9Response ={question9}
                 question10Response ={question10}
                 />
+                
             </div>
         
         </div>
