@@ -8,7 +8,6 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 export default function ComboBoxPET(props) {
   const [value, setValue] = useState('');
   const [inputValue, setInputValue] = useState('');
-  let text = `${props.combotext}`
   let petType1 = `${props.pet1}`
   let petType2 = `${props.pet2}`
   let petType3 = `${props.pet3}`

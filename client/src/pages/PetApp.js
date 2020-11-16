@@ -11,10 +11,8 @@ export default function PetApp() {
     const[petInformation, setPetInformation] = useState([])
 
     const[filterSize, setFilterSize] = useState('')
-    const[filterType, setFilterType] = useState('')
-  
+    const[filterType, setFilterType] = useState('')  
     const[filterData, setFilterData] = useState(true)
-    const[applyFilter, setApplyFilter] = useState(false)
 
 
     useEffect( () =>{
@@ -76,18 +74,23 @@ export default function PetApp() {
 
     function cardOutPut(pet){
       let data = petInformation[pet];
-      console.log(filterType + "  " + filterSize)
+      let valid = false;
       if(filterType === (data.type).trim() && filterSize === (data.size) ){
-       return true;
-      }else if(filterType === (data.type) && (filterSize === null || filterSize === "")){
-        return true;
-      }else if(filterSize ===(data.size) && (filterType === null || filterType === "")){
-        return true;
-    }else if(filterType === null && filterSize === null || filterType === "" && filterSize === ""  ){
-      return true;
-    }else {
-      return false;
+       valid = true;
+      }else if(filterType === (data.type)){
+        if(filterSize === null || filterSize === ""){
+          valid = true;
+        }
+      }else if(filterSize ===(data.size)){
+        if(filterType === null || filterType === ""){
+          valid = true;
+        }
+      }else if(filterType === null && filterSize === null){
+        valid = true;
+      }else if(filterType === "" && filterSize === ""  ){
+          valid = true;
       }
+      return valid;
     }
 
     function Card(pet){

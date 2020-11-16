@@ -26,11 +26,13 @@ export default function quizApp(props) {
             </div>
             <div className="text-question-container">
                 <TextQuestion question="How much money per year can you spend for your pet?" 
+                textID = "survey-question-1"
                 onChange={value=> setQuestion1(value)}
                 />
             </div>
             <div className="text-question-container">
                 <TextQuestion question="How much money can you spend on your pet for the first year?" 
+                textID = "survey-question-2"
                 onChange={value=> setQuestion2(value)}
                 />
             </div>
@@ -43,6 +45,7 @@ export default function quizApp(props) {
                     AnswerD="Extremly active"
                     hideRadioButtonC = "true"
                     hideRadioButtonD = "true"
+                    color ="primary"
                     onChange={value=> setQuestion3(value)}
                 />
             </div>
@@ -55,6 +58,7 @@ export default function quizApp(props) {
                     AnswerD="Extremly active"
                     hideRadioButtonC = "true"
                     hideRadioButtonD = "true"
+                    color ="secondary"
                     onChange={value=> setQuestion4(value)}
                 />
             </div>
@@ -67,6 +71,7 @@ export default function quizApp(props) {
                     AnswerD="Large"
                     hideRadioButtonC = "true"
                     hideRadioButtonD = "true"
+                    color ="primary"
                     onChange={value=> setQuestion5(value)}
                 />
             </div>
@@ -77,6 +82,7 @@ export default function quizApp(props) {
                     AnswerB="No"
                     hideRadioButtonC = "false"
                     hideRadioButtonD = "false"
+                    color ="secondary"
                     onChange={value=> setQuestion6(value)}
                 />
             </div>
@@ -87,6 +93,7 @@ export default function quizApp(props) {
                     AnswerB="No"
                     hideRadioButtonC = "false"
                     hideRadioButtonD = "false"
+                    color ="primary"
                     onChange={value=> setQuestion7(value)}
                 />
             </div>
@@ -97,6 +104,7 @@ export default function quizApp(props) {
                     AnswerB="No"
                     hideRadioButtonC = "false"
                     hideRadioButtonD = "false"
+                    color ="secondary"
                     onChange={value=> setQuestion8(value)}
                 />
             </div>

@@ -21,7 +21,7 @@ export default function SliderQuiz(props) {
     const setMax = Number(`${props.MaxValue}`)
     
     const handleChange=(e,val)=>{
-        setValueInput(val)
+        setValueInput(val) 
         props.onChange(valueInput)
       }
     return (
@@ -37,6 +37,7 @@ export default function SliderQuiz(props) {
                 defaultValue={0}
                 getAriaValueText={valuetext}
                 onChange={handleChange}
+                onClick={handleChange}
                 aria-labelledby="discrete-slider"
                 valueLabelDisplay="auto"
                 step={increaseBy}

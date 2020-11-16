@@ -23,11 +23,9 @@ const useStyles = makeStyles({
 export default function QuizCardLayout({details}) {
     const classes = useStyles()
     const [img, setImg] = useState(HouseImage)
-    const [petName, setPetName] = useState("")
     useEffect(() => {
     if(details.imgURL  !== null){
         setImg(details.imgURL);
-        setPetName(details.name)
 
     }else {
         setImg(HouseImage)
