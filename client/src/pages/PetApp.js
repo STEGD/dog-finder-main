@@ -1,43 +1,62 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import ComboBoxPET from './PetInfoComponents/ComboBoxPET';
-import ButtonSubmit from './QuizComponents/ButtonSubmit';
 import './PetApp.css'
-import CardArray from './QuizComponents/CardArray';
 import Button from '@material-ui/core/Button';
-import PetCard from './PetInfoComponents/PetCard'
-
-function AppearCard(props){
-    if(props.value === 1){
-      return  "0"
-    }
-}
+import QuizCardLayout from './QuizComponents/QuizCardLayout'
 
 
 export default function PetApp() {
-    const[question1, setQuestion1]= useState('')
-    const[question2, setQuestion2]= useState('')
+    const[petType, setPetType]= useState('')
+    const[petSize, setPetSize]= useState('')
+    const[petInformation, setPetInformation] = useState([])
+
+    const[filterSize, setFilterSize] = useState('')
+    const[filterType, setFilterType] = useState('')
   
-    const[showResults, setShowResults] = useState(false)
-    const numbers = ["1", "2", "3", "4", "5","6","7","8"];
+    const[filterData, setFilterData] = useState(true)
+    const[applyFilter, setApplyFilter] = useState(false)
 
 
-    function submitOnClick(q1, q2){
-      let size = q2 === "" ? "" : petSizeValue(q2);
+    useEffect( () =>{
+      if(filterData){
+         // alert("gathering data" + "\n" + petType + "\n" + petSize)
+          getPetData();
+          setFilterData(false);
+      }
+    },[filterData]);
+
+    function getPetData(){
+      let type = petType;
+      let pSize = petSize;
+      let size = pSize === "" ? "" : petSizeValue(petSize);
+     // alert(type + " \n" + size)
       let baseURL =  'https://us-central1-dog-finder-fae9d.cloudfunctions.net/app';
       const dataObj = {
-          "petType": q1,
+          "petType": type,
           "petSize": size 
       };
-
+    
       const reqOptions = {
         method: 'POST',
         headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
         body: JSON.stringify({ 'data': dataObj })
       }
-
+    
       fetch(`${baseURL}/api/filterPets`, reqOptions)
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => setPetInformation(data.value))
+    
+    }
+
+    function submitOnClick(){
+     // setFilterData(true);
+     setFilterSize(petSize);
+     setFilterType(petType);
+      //setApplyFilter(true)
+    }
+    function clearOnClick(){
+      setFilterSize("");
+      setFilterType("");
     }
 
     function petSizeValue(petSize){
@@ -55,6 +74,28 @@ export default function PetApp() {
       return size;
     }
 
+    function cardOutPut(pet){
+      let data = petInformation[pet];
+      console.log(filterType + "  " + filterSize)
+      if(filterType === (data.type).trim() && filterSize === (data.size) ){
+       return true;
+      }else if(filterType === (data.type) && (filterSize === null || filterSize === "")){
+        return true;
+      }else if(filterSize ===(data.size) && (filterType === null || filterType === "")){
+        return true;
+    }else if(filterType === null && filterSize === null || filterType === "" && filterSize === ""  ){
+      return true;
+    }else {
+      return false;
+      }
+    }
+
+    function Card(pet){
+      return   <QuizCardLayout key ={pet} details={petInformation[pet]} />;
+    }
+
+    
+
     return (
         <div>
         <div className="pet-info-grid-container">
@@ -70,7 +111,7 @@ export default function PetApp() {
            pet7="Reptile"
            combotext=""
            type="pet"
-           onChange={value=> setQuestion1(value)}/>
+           onChange={value=> setPetType(value)}/>
            <ComboBoxPET 
            combotext=""
            pet1="Tiny"
@@ -79,34 +120,28 @@ export default function PetApp() {
            pet4="Large"
            pet5=""
            type="size"
-           onChange={value=> setQuestion2(value)}/>
+           onChange={value=> setPetSize(value)}/>
             <Button variant ="contained" color="primary"
-                 onClick={()=>{submitOnClick(question1, question2)}}>
+                 onClick={()=>{submitOnClick()}}>
                 SUBMIT  
+            </Button>
+            <Button variant ="contained" color="primary"
+                 onClick={()=>{clearOnClick()}}>
+                Clear  
             </Button>
             </form>
         {/* </div> */}
         </div>
-        { (showResults ===false) ?
+       
+
         <div className="card-display-submit">
-        {numbers.map(number =>( 
-          <PetCard petName="dog image" description="description "/>
-            ))}
-         </div> 
-            : null }
-
-        { showResults ?
-        <div className="card-display-submit">
-        {numbers.map(number =>( 
-          (number === question1 || number === question2) ?
-         <PetCard petName="name" description="description "/>
-
-          : null
-            ))}
-         </div> 
-            : null }
-        
-
+            {Object.keys(petInformation).map(pet =>(
+            (cardOutPut(pet)=== true) ?   
+              Card(pet)
+            : null
+            )
+            )}
+          </div> 
 
         {/*<CardArray />
         <CardArray />*/}

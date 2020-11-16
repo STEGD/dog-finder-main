@@ -26,9 +26,6 @@ export default function CardLayout({details}) {
     //get the image from details else assign default
     // need to check if the details have info to display it does not use default values!!!
     useEffect(() => {
-
-        if(details.primary_photo_cropped !== null)
-            console.log("Image is: " , details.primary_photo_cropped.small)
         if(details.primary_photo_cropped !== null){
             image_update(details.primary_photo_cropped['small'])
         }

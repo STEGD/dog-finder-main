@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {makeStyles} from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 import CardActionArea from '@material-ui/core/CardActionArea'
@@ -22,7 +22,17 @@ const useStyles = makeStyles({
 
 export default function QuizCardLayout({details}) {
     const classes = useStyles()
-    // how to add image 
+    const [img, setImg] = useState(HouseImage)
+    const [petName, setPetName] = useState("")
+    useEffect(() => {
+    if(details.imgURL  !== null){
+        setImg(details.imgURL);
+        setPetName(details.name)
+
+    }else {
+        setImg(HouseImage)
+    }
+    },[])
 
     return (
     
@@ -40,7 +50,7 @@ export default function QuizCardLayout({details}) {
         <CardActionArea>
             <CardMedia 
                 className = {classes.media}
-                image = {details.imgURL}
+                image = {img}
                 title = {details.name}
             />
             <CardContent>
@@ -69,7 +79,10 @@ export default function QuizCardLayout({details}) {
 
         <CardActions>
             <div className="quiz-button">
-            <Link to="/petlayout" target="_blank" className="link-more">
+            <Link to={{
+                pathname: '/petlayout',
+                state: details
+            }} className="link-more" >
             <Button size = "small" color = "primary">
                 Learn More
             </Button>
