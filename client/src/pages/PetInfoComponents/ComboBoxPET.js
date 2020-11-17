@@ -1,13 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
-
-
-
-export default function ComboBoxPET(props) {
-  const [value, setValue] = useState('');
-  const [inputValue, setInputValue] = useState('');
+export default function ComboBoxPet(props) {
   let petType1 = `${props.pet1}`
   let petType2 = `${props.pet2}`
   let petType3 = `${props.pet3}`
@@ -16,37 +11,33 @@ export default function ComboBoxPET(props) {
   let petType6 = `${props.pet6}`
   let petType7 = `${props.pet7}`
 
-  let options = []
+  let options;
   if(petType5 !== ""){
-     options = [petType1, petType2, petType3, petType4, petType5, petType6,petType7];
+    options = [petType1, petType2, petType3, petType4, petType5, petType6,petType7];
+
   }else{
-     options = [petType1, petType2, petType3, petType4];
+    options = [petType1, petType2, petType3, petType4];
+
   }
- 
 
-
-  //setInputValue(text)
+  
   return (
-    <div>
+    <Autocomplete
+      id={props.type}
+      options={options}
     
-      <br />
-      <Autocomplete
-        value={value}
-        onChange={(event, newValue) => {
-          setValue(newValue);
-          props.onChange(newValue);
-        }}
-        inputValue={inputValue}
-        onInputChange={(event, newInputValue) => {
-          setInputValue(newInputValue);
-          props.onChange(newInputValue);
-
-        }}
-        id="controllable-states-demo"
-        options={options}
-        style={{ width: 300 }}
-        renderInput={(params) => <TextField {...params} label={props.type} variant="outlined" />}
-      />
-    </div>
+      onChange={(event, value) => {
+       // console.log(value)
+        if(value !== null){
+          console.log(value)
+          props.onChange(value);
+        }
+      }}
+    
+      style={{ width: 300 }}
+      renderInput={(params) => <TextField {...params} label={props.type} variant="outlined" />}
+    />
   );
 }
+
+// Top 100 films as rated by IMDb users. http://www.imdb.com/chart/to
