@@ -27,10 +27,10 @@ export default function ComboBoxPet(props) {
       options={options}
     
       onChange={(event, value) => {
-       // console.log(value)
         if(value !== null){
-          console.log(value)
           props.onChange(value);
+        }else{
+          props.onChange("")
         }
       }}
     

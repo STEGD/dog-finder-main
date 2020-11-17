@@ -1,14 +1,15 @@
 import React, {useState, useEffect} from 'react';
+
 import Button from '@material-ui/core/Button';
 import QuizCardLayout from './QuizCardLayout'
-
-
+import GIF from '../pics/dog_gif.gif'
 
 export default function ButtonSubmit(props) {
 
     const [showResults, setShowResults] = React.useState(false);
     const [petInfo, setPetInfo] = useState([]);
     const [inputOptions, setInputOptions] = useState(false)
+    const [dataLoading, setDataLoading] = useState(true)
     let q1 = `${props.question1Response}`;
     let q2 = `${props.question2Response}`;
     let q3 = `${props.question3Response}`;
@@ -21,7 +22,10 @@ export default function ButtonSubmit(props) {
     let q10 = `${props.question10Response}`;
 
     useEffect( () =>{
+        setDataLoading(true)
+        setPetInfo([])
         if(inputOptions){
+            console.log("data is being fetched")
             getData();
         }
         setInputOptions(false);
@@ -58,16 +62,20 @@ export default function ButtonSubmit(props) {
     function checkResponse() {
         if(q1 !== "" && q2 !== "" && q3 !== "" && q4 !== "" && q5 !== "" 
         && q6 !== ""&& q7 !== "" && q8 !== "" && q9 !== "" && q10 !== "") {
+            // console.log(q1 + "\n" + q2 + " \n"+q3 + "\n" + q4 + " \n"+q5 + "\n" + q6 + " \n"
+            // +q7 + "\n" + q8 + " \n" + q9 + "\n" + q10 + " \n")
             setInputOptions(true)
-            //getData()
-            
             setShowResults(true) 
         } else {
             alert("Please answer all the question");
         }
       }
 
- 
+      function cardOutPut(pet){
+        if(dataLoading){
+            setDataLoading(false);
+        }
+      }
 
     return (
         <div>
@@ -76,11 +84,22 @@ export default function ButtonSubmit(props) {
                 {props.text}   
             </Button>
             
-
+        {showResults ? 
+        <div>
+            {dataLoading ? 
+            <div>
+                <p>Loading</p> 
+                <img src={GIF} alt="loading..." />
+            </div>
+            : null}
+        </div>
+    :null}
+        
         {showResults ? 
         <div className="card-display-submit">
             {Object.keys(petInfo).map(pet =>{
-            return   <QuizCardLayout key ={pet} details={petInfo[pet]} />
+                cardOutPut(pet)
+                return   <QuizCardLayout key ={pet} details={petInfo[pet]} /> 
             }
             )}
         </div>
