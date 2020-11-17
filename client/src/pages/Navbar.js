@@ -13,6 +13,11 @@ export default function Navbar() {
                     <li className = "navlist"><Link to="/homeapp">Home</Link></li>
                     <li className = "navlist"><Link to="/quizapp">Survey</Link></li>
                     <li className = "navlist"><Link to="/petapp">Pets</Link></li>
+                    <li className = "navlist">
+                        <a href = "http://cs480-projects.github.io/teams-fall2020/Team%20STEDG/index.html">
+                            Contact
+                        </a>
+                    </li>
                     </ul>
                 </nav> 
         </div>
