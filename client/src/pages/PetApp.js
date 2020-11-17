@@ -2,13 +2,27 @@ import React, {useState, useEffect} from 'react'
 import ComboBoxPET from './PetInfoComponents/ComboBoxPET';
 import './PetApp.css'
 import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
 import QuizCardLayout from './QuizComponents/QuizCardLayout'
 
+const useStyles = makeStyles((theme) => ({
+    root: {
+      '& > *': {
+        //paddingTop: '20px',
+        margin: theme.spacing(1),
+       marginTop: '25px',
+        width: '180px',
+        height: '50px'
+      },
+    },
+  }));
 
 export default function PetApp() {
+  const classes = useStyles();
     const[petType, setPetType]= useState('')
     const[petSize, setPetSize]= useState('')
     const[petInformation, setPetInformation] = useState([])
+    const[countPets, setCountPets] = useState(0);
 
     const[filterSize, setFilterSize] = useState('')
     const[filterType, setFilterType] = useState('')  
@@ -17,7 +31,6 @@ export default function PetApp() {
 
     useEffect( () =>{
       if(filterData){
-         // alert("gathering data" + "\n" + petType + "\n" + petSize)
           getPetData();
           setFilterData(false);
       }
@@ -27,7 +40,6 @@ export default function PetApp() {
       let type = petType;
       let pSize = petSize;
       let size = pSize === "" ? "" : petSizeValue(petSize);
-     // alert(type + " \n" + size)
       let baseURL =  'https://us-central1-dog-finder-fae9d.cloudfunctions.net/app';
       const dataObj = {
           "petType": type,
@@ -48,8 +60,10 @@ export default function PetApp() {
 
     function submitOnClick(){
      // setFilterData(true);
+     setCountPets(0);
      setFilterSize(petSize);
      setFilterType(petType);
+     
       //setApplyFilter(true)
     }
     function clearOnClick(){
@@ -80,6 +94,7 @@ export default function PetApp() {
       }else if(filterType === (data.type)){
         if(filterSize === null || filterSize === ""){
           valid = true;
+
         }
       }else if(filterSize ===(data.size)){
         if(filterType === null || filterType === ""){
@@ -89,11 +104,16 @@ export default function PetApp() {
         valid = true;
       }else if(filterType === "" && filterSize === ""  ){
           valid = true;
+          
       }
       return valid;
     }
 
     function Card(pet){
+      //setCountPets(countPets +1);
+      if(countPets === 0){
+        setCountPets(1);
+      }
       return   <QuizCardLayout key ={pet} details={petInformation[pet]} />;
     }
 
@@ -124,14 +144,18 @@ export default function PetApp() {
            pet5=""
            type="size"
            onChange={value=> setPetSize(value)}/>
+           <div className={classes.root}>
             <Button variant ="contained" color="primary"
                  onClick={()=>{submitOnClick()}}>
                 SUBMIT  
             </Button>
+            </div>
+            <div className={classes.root}>
             <Button variant ="contained" color="primary"
                  onClick={()=>{clearOnClick()}}>
                 Clear  
             </Button>
+            </div>
             </form>
         {/* </div> */}
         </div>
@@ -144,7 +168,10 @@ export default function PetApp() {
             : null
             )
             )}
+
+            {(countPets === 0) ? <p>We do not have a pet matching your criteria. Please search again</p> : null}
           </div> 
+        
 
         {/*<CardArray />
         <CardArray />*/}

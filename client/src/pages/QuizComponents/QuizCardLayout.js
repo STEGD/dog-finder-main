@@ -64,13 +64,13 @@ export default function QuizCardLayout({details}) {
                 First year cost: ${details.firstYearCost}
                 </Typography>
                 <Typography variant = "body2" color = "textSecondary" component = "p">
-                Annuak Cost: ${details.annualCost}
+                Annual Cost: ${details.annualCost}
                 </Typography>
                 <Typography variant = "body2" color = "textSecondary" component = "p">
-                Activity Level: ${details.activityLevel}
+                Activity Level: {details.activityLevel}
                 </Typography>
                 <Typography variant = "body2" color = "textSecondary" component = "p">
-                Owner Eperience: ${details.ownerExp}
+                Owner Experience: {details.ownerExp}
                 </Typography>
             </CardContent>
         </CardActionArea>
