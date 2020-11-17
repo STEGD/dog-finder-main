@@ -20,7 +20,6 @@ const useStyles = makeStyles({
 
 export default function CardLayout({details}) {
 
-
     const classes = useStyles()
     const [image_pic, image_update] = useState(HouseImage)
     //get the image from details else assign default
@@ -70,10 +69,10 @@ export default function CardLayout({details}) {
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
-                    {details.name}
+                    {details.name !== null ? details.name : "Name me!"}
                 </Typography>
                 <Typography variant = "body2" color = "textSecondary" component = "p">
-                    {details.description}
+                    {details.description !== null ? details.description : "Read more about me!"}
                 </Typography>
             </CardContent>
         </CardActionArea>

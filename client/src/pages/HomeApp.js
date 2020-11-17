@@ -108,7 +108,7 @@ export default function HomeApp() {
                         </a>
                     </section>
             </div>
-            <div id ="pet-display">
+            <div className ="pet-display">
                 {/* Meet, API call to pets*/}
                 <div className="card-display">
                 {/* Fix issue when displaying data*/}

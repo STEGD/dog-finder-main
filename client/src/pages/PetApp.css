@@ -3,14 +3,15 @@
 }
 
 .searchBar{
-    display: inline-flex;
+    display: flex;
     grid-gap: 20px;
-    padding-left: 100px;
     list-style: none;
     justify-content: center;
     align-items: center;
-    
+    flex-wrap: wrap;
 }
+
+
 .card-display-submit {
     background: rgb(184, 175, 175);
     display: grid;
@@ -20,4 +21,14 @@
     row-gap: 15px;
     column-gap: 5px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+@media screen and (max-width: 700px) {
+    .card-display-submit {
+        background: rgb(184, 175, 175);
+        display: grid;
+        padding: 20px;
+        row-gap: 15px;
+        grid-template-columns: 1fr;
+    }
 }
