@@ -74,7 +74,7 @@ export default function HomeApp() {
                 {/*About us section, maybe add 3 sections with icons*/}
                     <section className = "containerSection-survey">
                         <h3 className = "hidden">Find your pet!</h3>
-                        <a className ="aboutCardLink" href = "/quizapp">
+                        <Link to ="/quizapp" className ="aboutCardLink">
                             <section className = "description-container">
                                 <h4 className = "link-title">
                                         Find your pet!
@@ -83,7 +83,7 @@ export default function HomeApp() {
                                         Click here take our survey!     
                                 </p>
                             </section>
-                        </a>
+                        </Link>
                     </section>
                     <section className = "containerSection-pet">
                         <h3 className = "hidden">Explore nearby pets!</h3>              
@@ -108,7 +108,7 @@ export default function HomeApp() {
                         </a>
                     </section>
             </div>
-            <div className ="pet-display">
+            <div id ="pet-display" className = "pet-display">
                 {/* Meet, API call to pets*/}
                 <div className="card-display">
                 {/* Fix issue when displaying data*/}
