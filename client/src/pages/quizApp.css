@@ -51,7 +51,6 @@
 }
 .submit-container{
     grid-area: submit-container;
-    padding: 10px;
     text-align: center;
 }
 

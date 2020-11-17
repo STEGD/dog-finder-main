@@ -22,7 +22,7 @@ export default function TextQuestion(props) {
             <form className={classes.root} noValidate autoComplete="off">
            <h3>{props.question}</h3>
                 <TextField
-                    id="standard-number"
+                    id={props.textID}
                     label="Number"
                     type="number"
                     onChange={(event) => props.onChange(event.target.value)}                   

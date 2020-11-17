@@ -26,11 +26,13 @@ export default function quizApp(props) {
             </div>
             <div className="text-question-container">
                 <TextQuestion question="How much money per year can you spend for your pet?" 
+                textID = "survey-question-1"
                 onChange={value=> setQuestion1(value)}
                 />
             </div>
             <div className="text-question-container">
                 <TextQuestion question="How much money can you spend on your pet for the first year?" 
+                textID = "survey-question-2"
                 onChange={value=> setQuestion2(value)}
                 />
             </div>
@@ -43,6 +45,7 @@ export default function quizApp(props) {
                     AnswerD="Extremly active"
                     hideRadioButtonC = "true"
                     hideRadioButtonD = "true"
+                    color ="primary"
                     onChange={value=> setQuestion3(value)}
                 />
             </div>
@@ -55,6 +58,7 @@ export default function quizApp(props) {
                     AnswerD="Extremly active"
                     hideRadioButtonC = "true"
                     hideRadioButtonD = "true"
+                    color ="secondary"
                     onChange={value=> setQuestion4(value)}
                 />
             </div>
@@ -67,26 +71,29 @@ export default function quizApp(props) {
                     AnswerD="Large"
                     hideRadioButtonC = "true"
                     hideRadioButtonD = "true"
+                    color ="primary"
                     onChange={value=> setQuestion5(value)}
                 />
             </div>
             <div className="radio-question-container">
                 <RadioQuestion 
-                    question="Do you have kids under the age of 10?"
+                    question="Are there any family members under 10 in your house?"
                     AnswerA="Yes"
                     AnswerB="No"
                     hideRadioButtonC = "false"
                     hideRadioButtonD = "false"
+                    color ="secondary"
                     onChange={value=> setQuestion6(value)}
                 />
             </div>
             <div className="radio-question-container">
                 <RadioQuestion 
-                    question="Do you have kids over the age of 10?"
+                    question="Are there any family members over 10 in your house"
                     AnswerA="Yes"
                     AnswerB="No"
                     hideRadioButtonC = "false"
                     hideRadioButtonD = "false"
+                    color ="primary"
                     onChange={value=> setQuestion7(value)}
                 />
             </div>
@@ -97,11 +104,12 @@ export default function quizApp(props) {
                     AnswerB="No"
                     hideRadioButtonC = "false"
                     hideRadioButtonD = "false"
+                    color ="secondary"
                     onChange={value=> setQuestion8(value)}
                 />
             </div>
             <div className="slider-question-container">
-                <SliderQuiz quesiton="How much free time do you have to spend with your pet? 
+                <SliderQuiz quesiton="How much free time per day do you have to spend on your pet? 
                 Rate is measured in hours "
                 MaxValue = '6'
                 increaseValue = '0.5'
@@ -116,7 +124,9 @@ export default function quizApp(props) {
                 />
             </div>
             <div className="submit-container">
+                
                 <ButtonSubmit text="Submit"
+                
                 question1Response ={question1}
                 question2Response ={question2}
                 question3Response ={question3}
@@ -128,6 +138,7 @@ export default function quizApp(props) {
                 question9Response ={question9}
                 question10Response ={question10}
                 />
+                
             </div>
         
         </div>

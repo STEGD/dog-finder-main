@@ -6,7 +6,7 @@ import Slider from '@material-ui/core/Slider'
 
 const useStyles =makeStyles({
     root:{
-        width:455,
+       width: 300,
     },
 });
 
@@ -21,11 +21,12 @@ export default function SliderQuiz(props) {
     const setMax = Number(`${props.MaxValue}`)
     
     const handleChange=(e,val)=>{
-        setValueInput(val)
-        props.onChange(valueInput)
+        setValueInput(val) 
+      
+        props.onChange(val)
       }
+      
     return (
-        <div className={classes.root}>
             <div className="slider-container">
             <div className="slider-title-Question">
             <Typography id="discrete-slider" gutterBottom>
@@ -37,6 +38,7 @@ export default function SliderQuiz(props) {
                 defaultValue={0}
                 getAriaValueText={valuetext}
                 onChange={handleChange}
+               
                 aria-labelledby="discrete-slider"
                 valueLabelDisplay="auto"
                 step={increaseBy}
@@ -47,6 +49,6 @@ export default function SliderQuiz(props) {
             </div>
             </div>
             
-        </div>
+  
     )
 }

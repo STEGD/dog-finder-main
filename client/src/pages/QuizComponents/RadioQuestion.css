@@ -59,7 +59,8 @@
 }
 
 @media(max-width:700px){
-    .top-container{
+    .grid-container{
+        justify-content: center;
       grid-template-areas:
      'title'
      'responseA'
@@ -67,4 +68,37 @@
      'responseC'
      'responseD';
     }
+    .responseA {
+        grid-area: responseA;
+        grid-gap:0;
+       justify-content: center;
+     }
+    
+     .responseA p{
+         font-size: 15px;
+         width: 200px;
+     }
+     .responseB {
+        grid-area: responseB;
+        grid-gap:0;
+        justify-content: center;
+     }
+     .responseB p{
+        font-size: 15px;
+        width: 200px;
+    }
+     .responseC {
+        grid-area: responseC;
+        grid-gap:0;
+        justify-content: center;
+     }
+     .responseC p{
+        font-size: 15px;
+         width: 200px;
+    }
+     .responseD {
+        grid-area: responseD;
+        grid-gap:0;
+        justify-content: center;
+     }
   }

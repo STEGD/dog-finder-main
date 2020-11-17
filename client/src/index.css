@@ -3,11 +3,11 @@ body {
   padding: 0;
   font-family: sans-serif;
   font-weight: 400;
-  background: rgb(221, 214, 214);
+  background: rgb(184, 175, 175)
 }
 
 header{
-  background-color: lightblue;
+  background-color:#86C5FA;
 }
 
 header::after{
