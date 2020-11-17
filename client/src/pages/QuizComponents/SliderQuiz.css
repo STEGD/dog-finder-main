@@ -1,9 +1,12 @@
+
 .slider-container{
+    width: 500px;
     margin: auto;
     display: grid;
     grid-gap: 5px;
     padding: 0;
     list-style: none;
+
     grid-template-areas: 
     'slider-title-Question slider-title-Question'
     'slider-bar slider-bar';
@@ -18,4 +21,13 @@
     grid-area: slider-bar;
     display: flex;
     justify-content: left;
+}
+
+@media screen and (max-width: 700px){
+    .slider-container{
+        width:200px;
+        grid-template-areas: 
+        'slider-title-Question'
+        'slider-bar';
+    }
 }

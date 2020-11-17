@@ -77,7 +77,7 @@ export default function quizApp(props) {
             </div>
             <div className="radio-question-container">
                 <RadioQuestion 
-                    question="Do you have kids under the age of 10?"
+                    question="Are there any family members under 10 in your house?"
                     AnswerA="Yes"
                     AnswerB="No"
                     hideRadioButtonC = "false"
@@ -88,7 +88,7 @@ export default function quizApp(props) {
             </div>
             <div className="radio-question-container">
                 <RadioQuestion 
-                    question="Do you have kids over the age of 10?"
+                    question="Are there any family members over 10 in your house"
                     AnswerA="Yes"
                     AnswerB="No"
                     hideRadioButtonC = "false"
@@ -109,7 +109,7 @@ export default function quizApp(props) {
                 />
             </div>
             <div className="slider-question-container">
-                <SliderQuiz quesiton="How much free time do you have to spend with your pet? 
+                <SliderQuiz quesiton="How much free time per day do you have to spend on your pet? 
                 Rate is measured in hours "
                 MaxValue = '6'
                 increaseValue = '0.5'
