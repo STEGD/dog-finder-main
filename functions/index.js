@@ -55,9 +55,14 @@ app.post('/api/submit', jsonParser, async (req, res) => {
   const filterFreeTime = values.filter(data => data.timeNeeded <= freeTime);
   const filterAnnualCost = filterFreeTime.filter(data => data.annualCost <= costPerYear);
   const filterFirstYearCost = filterAnnualCost.filter(data => data.firstYearCost <= firstYearCost);
-  const filterKidsOverTen = filterFirstYearCost.filter(data => data.oldKidOk === kidsOverTen);
-  const filterKidsUnderTen = filterKidsOverTen.filter(data => data.youngKidOk === kidsUnderTen);
-  const filterPersonalActivityLevel = filterKidsUnderTen.filter(data => data.energyNeeded <= personalActivityLevel);
+  const filterAge = values.filter(data => {
+    if (kidsUnderTen) {
+      return data.youngKidOk
+    } else {
+      return data;
+    }
+  });
+  const filterPersonalActivityLevel = filterAge.filter(data => data.energyNeeded <= personalActivityLevel);
   const filterPetExperience = filterPersonalActivityLevel.filter(data => data.ownerExp <= petExperience);
   const filterPetAllergies = filterPetExperience.filter(data => {
     if (allergies) {
