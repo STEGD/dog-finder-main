@@ -100,7 +100,7 @@ export default function HomeApp() {
                     </section>
                     <section className = "containerSection-charity">
                         <h3 className = "hidden">Support charities!</h3>
-                        <a className ="aboutCardLink" href = "https://bestfriends.org/" target = "_blank">
+                        <a className ="aboutCardLink" href = "https://bestfriends.org/" target = "_blank" rel="noopener noreferrer">
                             <section className = "description-container">
                                 <h4 className = "link-title">Support charities!</h4>
                                 <p className = "link-description">Click here to donate!</p>
