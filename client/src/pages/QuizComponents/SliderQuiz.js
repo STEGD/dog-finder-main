@@ -1,27 +1,19 @@
-import React,{useState} from 'react'
-import {makeStyles} from '@material-ui/core/styles';
+import React from 'react'
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider'
 /*import './SliderQuiz.css'*/
 
-const useStyles =makeStyles({
-    root:{
-       width: 300,
-    },
-});
 
 function valuetext(value){
     return value + " hrs"
 }
 
 export default function SliderQuiz(props) {
-    const classes= useStyles();
-    const [valueInput, setValueInput] = useState("")
+    
     const increaseBy = Number(`${props.increaseValue}`)
     const setMax = Number(`${props.MaxValue}`)
     
     const handleChange=(e,val)=>{
-        setValueInput(val) 
       
         props.onChange(val)
       }

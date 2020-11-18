@@ -4,13 +4,15 @@ import './PetApp.css'
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import QuizCardLayout from './QuizComponents/QuizCardLayout'
+import MatchNotFound from './pics/MatchNotFound.jpg'
+import GIF from './pics/dog_gif.gif'
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
       '& > *': {
         //paddingTop: '20px',
         margin: theme.spacing(1),
-       marginTop: '25px',
         width: '180px',
         height: '50px'
       },
@@ -22,7 +24,10 @@ export default function PetApp() {
     const[petType, setPetType]= useState('')
     const[petSize, setPetSize]= useState('')
     const[petInformation, setPetInformation] = useState([])
-    const[countPets, setCountPets] = useState(0);
+    const[countPets, setCountPets] = useState(1);
+    const[loadPets, setLoadPets] = useState(0);
+    const[resetText, setResetText] = useState(true);
+
 
     const[filterSize, setFilterSize] = useState('')
     const[filterType, setFilterType] = useState('')  
@@ -67,8 +72,11 @@ export default function PetApp() {
       //setApplyFilter(true)
     }
     function clearOnClick(){
+      setResetText(false)
+      setCountPets(0);
       setFilterSize("");
       setFilterType("");
+
     }
 
     function petSizeValue(petSize){
@@ -113,15 +121,26 @@ export default function PetApp() {
       //setCountPets(countPets +1);
       if(countPets === 0){
         setCountPets(1);
+      }else if(loadPets === 0){
+        setLoadPets(1);
       }
       return   <QuizCardLayout key ={pet} details={petInformation[pet]} />;
     }
 
-    
+ 
+    function updateReset(){
+      if(resetText === false && petType === "" & petSize === ""){
+        setResetText(true)
+      }else if(resetText === false && petType === null & petSize === null){
+        setResetText(true)
+      }
+    }
 
     return (
         <div>
         <div className="pet-info-grid-container">
+        
+
            {/*<div className="searchBar"> */}
             <form  className="searchBar">
            <ComboBoxPET 
@@ -132,8 +151,8 @@ export default function PetApp() {
            pet5="Small Mammal"
            pet6="Rock"
            pet7="Reptile"
-           combotext=""
            type="pet"
+           reset={resetText}
            onChange={value=> setPetType(value)}/>
            <ComboBoxPET 
            combotext=""
@@ -142,8 +161,11 @@ export default function PetApp() {
            pet3="Medium"
            pet4="Large"
            pet5=""
+           reset={resetText}
            type="size"
            onChange={value=> setPetSize(value)}/>
+            {updateReset()}
+
            <div className={classes.root}>
             <Button variant ="contained" color="primary"
                  onClick={()=>{submitOnClick()}}>
@@ -168,13 +190,17 @@ export default function PetApp() {
             : null
             )
             )}
-
-            {(countPets === 0) ? <p>We do not have a pet matching your criteria. Please search again</p> : null}
+            {(loadPets === 0) ?
+              <div>
+                <p>Loading</p> 
+                <img src={GIF} alt="loading..." /> 
+              </div>
+              : null}
+            {(countPets === 0) ? <img src = {MatchNotFound} alt = '' className = ""/> : null}
           </div> 
         
-
-        {/*<CardArray />
-        <CardArray />*/}
+       
+        
 
         </div>
     )
