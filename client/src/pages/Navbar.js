@@ -8,7 +8,7 @@ export default function Navbar() {
     <header>
         <div className = "navbar">
                 <img src = {Pic} alt = 'title' className = "logo"/>
-                <nav>
+                <nav className = 'nav-bar'>
                     <ul>
                     <li className = "navlist"><Link to="/homeapp">Home</Link></li>
                     <li className = "navlist"><Link to="/quizapp">Survey</Link></li>

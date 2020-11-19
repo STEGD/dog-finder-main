@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import './HomeApp.css'
 import CardLayout from './QuizComponents/CardLayout'
+import PetImage from './pics/pet_image_transform.png'
 
 export default function HomeApp() {
 
@@ -43,7 +44,8 @@ export default function HomeApp() {
               //fetch the data with the access token
               fetch("https://api.petfinder.com/v2/animals", {
               headers: {
-                Authorization: "Bearer " + token_access
+                Authorization: "Bearer " + token_access,
+                'Content-Type': 'application/json'
               },
               method: "GET"
             }).then(res => res.json()).then(data => setData(data.animals))
@@ -60,12 +62,14 @@ export default function HomeApp() {
 
 
     return (
-
         <div>
             <div className = 'top-container'>
             <header className = 'landing-info'>
-            <div className= 'landing-contents'>
-            <h1 className= 'landing-info-text'>Welcome to the pet finder!</h1>
+            <div className = 'pet-welcome-image'>
+                <img src={PetImage} alt = 'Pet Welcome!'/>
+            </div>
+            <div className='landing-contents'>
+            <h1 className= 'landing-info-text'>Welcome to Pet Harmony !</h1>
             <Link to= '/quizapp' className='landing-quiz-btn'>Take Quiz</Link>
             </div>
             </header>
