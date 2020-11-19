@@ -3,7 +3,6 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
 export default function ComboBoxPet(props) {
-  const [removeText, setRemoveText] = useState(props.reset)
   const [updateText, setUpdateText] = useState(null)
 
   let petType1 = `${props.pet1}`
@@ -25,7 +24,6 @@ export default function ComboBoxPet(props) {
   }
   useEffect(() => {
     if(props.reset === false){
-    setRemoveText(true);
     setUpdateText(null);
     props.onChange("")
     }
@@ -47,7 +45,6 @@ export default function ComboBoxPet(props) {
 
       onChange={(event, value) => {
         setUpdateText(value)
-        console.log(removeText+ "   "+ value)
         if(value !== null){
           props.onChange(value);
           

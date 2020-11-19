@@ -3,6 +3,8 @@ import React, {useState, useEffect} from 'react';
 import Button from '@material-ui/core/Button';
 import QuizCardLayout from './QuizCardLayout'
 import GIF from '../pics/dog_gif.gif'
+import './CardArray.css'
+
 
 export default function ButtonSubmit(props) {
 
@@ -25,7 +27,6 @@ export default function ButtonSubmit(props) {
         setDataLoading(true)
         setPetInfo([])
         if(inputOptions){
-            console.log("data is being fetched")
             getData();
         }
         setInputOptions(false);
@@ -88,7 +89,7 @@ export default function ButtonSubmit(props) {
         <div>
             {dataLoading ? 
             <div>
-                <p>Loading</p> 
+                <p>Loading...</p> 
                 <img src={GIF} alt="loading..." />
             </div>
             : null}

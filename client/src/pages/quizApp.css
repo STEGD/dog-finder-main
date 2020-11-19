@@ -52,6 +52,7 @@
 .submit-container{
     grid-area: submit-container;
     text-align: center;
+    padding: 10px;
 }
 
 @media screen and (max-width:200px){

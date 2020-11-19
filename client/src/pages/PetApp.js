@@ -183,21 +183,24 @@ export default function PetApp() {
         </div>
        
 
-        <div className="card-display-submit">
+        <div className="pet-card-display-submit">
             {Object.keys(petInformation).map(pet =>(
             (cardOutPut(pet)=== true) ?   
               Card(pet)
             : null
             )
             )}
+           
+          </div> 
+          <div className="image-loading-display">
             {(loadPets === 0) ?
               <div>
                 <p>Loading</p> 
-                <img src={GIF} alt="loading..." /> 
+                <img src={GIF} alt="loading..." className = "not-found-img" /> 
               </div>
               : null}
-            {(countPets === 0) ? <img src = {MatchNotFound} alt = '' className = ""/> : null}
-          </div> 
+            {(countPets === 0) ? <img src = {MatchNotFound} alt = '' className = "not-found-img"/> : null}
+            </div>
         
        
         
