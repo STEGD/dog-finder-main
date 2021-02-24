@@ -4,12 +4,12 @@ const express = require('express');
 const bodyParser = require('body-parser')
 const cors = require('cors');
 const app = express();
-const serviceAccount = require("./permission.json");
+// const serviceAccount = require("./permission.json");
 
 app.use(cors({ origin: true }));
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
+admin.initializeApp({ 
+  //credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://dog-finder-fae9d.firebaseio.com"
 });
 
